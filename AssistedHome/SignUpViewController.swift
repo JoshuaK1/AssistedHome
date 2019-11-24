@@ -7,19 +7,51 @@
 //
 
 import Foundation
+import Firebase
 import UIKit
 
 class SignUpViewController: UIViewController {
     
-    @IBAction func SignUpButton(_ sender: Any) {
-        performSegue(withIdentifier: "showSigninViewControllerFromSignup", sender: self)
-        
-    }
+    @IBOutlet weak var SignUpCreateButton: UIButton!
     @IBOutlet weak var FooterView: UIView!
     @IBOutlet weak var SignUpEmailField: UITextField!
     @IBOutlet weak var SignUpPasswordField: UITextField!
     @IBOutlet weak var SignUpConfirmPasswordField: UITextField!
     
+    
+    // This action needs to be changed from SignUp to SignIn
+    @IBAction func SignUpButton(_ sender: Any) {
+        performSegue(withIdentifier: "showSigninViewControllerFromSignup", sender: self)
+        
+    }
+    
+    // More validation to be added here
+    @IBAction func SignUpCreateButton(_ sender: Any) {
+        if SignUpPasswordField.text != SignUpConfirmPasswordField.text {
+            let alertController = UIAlertController(title: "Passwords do not match", message: "Please re-type and try again", preferredStyle: .alert)
+            let defaultAction   = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            Auth.auth().createUser(withEmail: SignUpEmailField.text!, password: SignUpPasswordField.text!){
+                (user,error) in
+                
+                if error == nil{
+                    self.performSegue(withIdentifier: "SignUpToHome", sender: self)
+                } else {
+                    let alertController = UIAlertController(title: "Sign up failed", message: error?.localizedDescription, preferredStyle: .alert)
+                    let defaultAction   = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+            
+        }
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +72,10 @@ class SignUpViewController: UIViewController {
                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         SignUpEmailField.attributedPlaceholder              = NSAttributedString(string: "assistedhome@example.com",
                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        // Button Formatting
+        SignUpCreateButton.backgroundColor    = UIColor.white.withAlphaComponent(0.5)
+        SignUpCreateButton.layer.cornerRadius = 7
    
         
         

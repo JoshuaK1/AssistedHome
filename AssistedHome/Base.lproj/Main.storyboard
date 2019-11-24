@@ -123,6 +123,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jds-bu-N0r">
+                                <rect key="frame" x="97" y="552" width="221" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignUpCreateButton:" destination="dsV-Y3-ioQ" eventType="touchUpInside" id="xyz-kj-zqs"/>
+                                    <segue destination="uUl-NE-mm7" kind="show" identifier="SignUpToHome" id="JJK-YQ-KjW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="5fq-nV-Z85"/>
@@ -130,6 +142,7 @@
                     <connections>
                         <outlet property="FooterView" destination="vU2-Oy-C4I" id="UEo-ZT-1ch"/>
                         <outlet property="SignUpConfirmPasswordField" destination="FZE-5q-NyH" id="loU-28-6sD"/>
+                        <outlet property="SignUpCreateButton" destination="jds-bu-N0r" id="jRl-s3-D0L"/>
                         <outlet property="SignUpEmailField" destination="Xuz-ah-1K9" id="jIq-KI-opb"/>
                         <outlet property="SignUpPasswordField" destination="tpm-OC-e2S" id="Wcc-NC-GA5"/>
                         <segue destination="QED-Xg-TJt" kind="show" identifier="showSigninViewControllerFromSignup" id="O59-vi-F1a"/>
@@ -203,6 +216,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="O59-vi-F1a"/>
-        <segue reference="CMU-Rt-WKv"/>
+        <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>
