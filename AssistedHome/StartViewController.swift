@@ -12,17 +12,27 @@ import UIKit
 class StartViewController: UIViewController {
     
     
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var FooterView: UIView!
     @IBAction func SignUpButton(_ sender: UIButton) {
         performSegue(withIdentifier: "showSignupViewController", sender: self)
     }
     
+    @IBAction func loginButton(_ sender: Any) {
+        performSegue(withIdentifier: "showLoginViewController", sender: self)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         
         FooterView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        
+        loginButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        
+        loginButton.layer.cornerRadius = 7
+        
     }
     
 }

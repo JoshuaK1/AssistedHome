@@ -43,13 +43,26 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="0.29345034246575341" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-51-Mij">
+                                <rect key="frame" x="139" y="624" width="136" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="3lu-Y5-ObO" eventType="touchUpInside" id="cV0-Ej-h2X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0025347766932100058" green="0.67517095804214478" blue="0.99203270673751831" alpha="0.78194563356164382" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="muk-R4-ikZ"/>
                     </view>
                     <connections>
                         <outlet property="FooterView" destination="neP-Ah-AZW" id="b8e-Aj-Vvu"/>
+                        <outlet property="loginButton" destination="vXK-51-Mij" id="jWs-OW-2z7"/>
                         <segue destination="dsV-Y3-ioQ" kind="show" identifier="showSignupViewController" id="ynO-dI-6vb"/>
+                        <segue destination="QED-Xg-TJt" kind="show" identifier="showLoginViewController" id="eoL-tB-EFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaS-LO-gWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
