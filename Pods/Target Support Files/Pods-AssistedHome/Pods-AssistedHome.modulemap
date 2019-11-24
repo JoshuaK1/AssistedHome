@@ -1,0 +1,6 @@
+framework module Pods_AssistedHome {
+  umbrella header "Pods-AssistedHome-umbrella.h"
+
+  export *
+  module * { export * }
+}

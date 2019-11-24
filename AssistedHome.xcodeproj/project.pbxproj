@@ -17,6 +17,10 @@
 		C0F2D51B238A87930092BA1D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D51A238A87930092BA1D /* LoginViewController.swift */; };
 		C0F2D51D238A87A20092BA1D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D51C238A87A20092BA1D /* SignUpViewController.swift */; };
 		C0F2D51F238A87AF0092BA1D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D51E238A87AF0092BA1D /* HomeViewController.swift */; };
+		C0F2D521238A8B130092BA1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */; };
+		C0F2D522238A8B130092BA1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */; };
+		CC59AE00277442C17BDA4DBA /* Pods_AssistedHomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 376A4DAB963CD905A3051892 /* Pods_AssistedHomeTests.framework */; };
+		D777B087CD94A1CDFD5C5399 /* Pods_AssistedHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2B43DFA021EF7A958EF42 /* Pods_AssistedHome.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02C2B43DFA021EF7A958EF42 /* Pods_AssistedHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssistedHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06929789F60F8F7BE6DF2774 /* Pods-AssistedHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHome.debug.xcconfig"; path = "Target Support Files/Pods-AssistedHome/Pods-AssistedHome.debug.xcconfig"; sourceTree = "<group>"; };
+		2674F049323A5910A4861333 /* Pods-AssistedHomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHomeTests.release.xcconfig"; path = "Target Support Files/Pods-AssistedHomeTests/Pods-AssistedHomeTests.release.xcconfig"; sourceTree = "<group>"; };
+		376A4DAB963CD905A3051892 /* Pods_AssistedHomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssistedHomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5C1D93124F4C7AB85DDA78F /* Pods-AssistedHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHome.release.xcconfig"; path = "Target Support Files/Pods-AssistedHome/Pods-AssistedHome.release.xcconfig"; sourceTree = "<group>"; };
+		BC5E647BC12E996210E1BC1B /* Pods-AssistedHomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHomeTests.debug.xcconfig"; path = "Target Support Files/Pods-AssistedHomeTests/Pods-AssistedHomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0F2D4F5238A859A0092BA1D /* AssistedHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssistedHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0F2D4FA238A859A0092BA1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +54,7 @@
 		C0F2D51A238A87930092BA1D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C0F2D51C238A87A20092BA1D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C0F2D51E238A87AF0092BA1D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D777B087CD94A1CDFD5C5399 /* Pods_AssistedHome.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,18 +70,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC59AE00277442C17BDA4DBA /* Pods_AssistedHomeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		019D42DDF2E0A3498DA54287 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06929789F60F8F7BE6DF2774 /* Pods-AssistedHome.debug.xcconfig */,
+				A5C1D93124F4C7AB85DDA78F /* Pods-AssistedHome.release.xcconfig */,
+				BC5E647BC12E996210E1BC1B /* Pods-AssistedHomeTests.debug.xcconfig */,
+				2674F049323A5910A4861333 /* Pods-AssistedHomeTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		0670CF1DBEF69F8E140DC1F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02C2B43DFA021EF7A958EF42 /* Pods_AssistedHome.framework */,
+				376A4DAB963CD905A3051892 /* Pods_AssistedHomeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C0F2D4EC238A859A0092BA1D = {
 			isa = PBXGroup;
 			children = (
 				C0F2D4F7238A859A0092BA1D /* AssistedHome */,
 				C0F2D50C238A859D0092BA1D /* AssistedHomeTests */,
 				C0F2D4F6238A859A0092BA1D /* Products */,
+				019D42DDF2E0A3498DA54287 /* Pods */,
+				0670CF1DBEF69F8E140DC1F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +121,7 @@
 		C0F2D4F7238A859A0092BA1D /* AssistedHome */ = {
 			isa = PBXGroup;
 			children = (
+				C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */,
 				C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */,
 				C0F2D4FA238A859A0092BA1D /* ViewController.swift */,
 				C0F2D4FC238A859A0092BA1D /* Main.storyboard */,
@@ -115,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0F2D512238A859D0092BA1D /* Build configuration list for PBXNativeTarget "AssistedHome" */;
 			buildPhases = (
+				5349D0F0C679D23C94D5631D /* [CP] Check Pods Manifest.lock */,
 				C0F2D4F1238A859A0092BA1D /* Sources */,
 				C0F2D4F2238A859A0092BA1D /* Frameworks */,
 				C0F2D4F3238A859A0092BA1D /* Resources */,
+				CF25420BC4B4FA2AD219CCBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +171,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0F2D515238A859D0092BA1D /* Build configuration list for PBXNativeTarget "AssistedHomeTests" */;
 			buildPhases = (
+				2B10481B9483FAFE563AC249 /* [CP] Check Pods Manifest.lock */,
 				C0F2D505238A859D0092BA1D /* Sources */,
 				C0F2D506238A859D0092BA1D /* Frameworks */,
 				C0F2D507238A859D0092BA1D /* Resources */,
@@ -190,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F2D503238A859D0092BA1D /* LaunchScreen.storyboard in Resources */,
+				C0F2D521238A8B130092BA1D /* GoogleService-Info.plist in Resources */,
 				C0F2D500238A859D0092BA1D /* Assets.xcassets in Resources */,
 				C0F2D4FE238A859A0092BA1D /* Main.storyboard in Resources */,
 			);
@@ -199,10 +240,82 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F2D522238A8B130092BA1D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B10481B9483FAFE563AC249 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AssistedHomeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5349D0F0C679D23C94D5631D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AssistedHome-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF25420BC4B4FA2AD219CCBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AssistedHome/Pods-AssistedHome-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AssistedHome/Pods-AssistedHome-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C0F2D4F1238A859A0092BA1D /* Sources */ = {
@@ -374,6 +487,7 @@
 		};
 		C0F2D513238A859D0092BA1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06929789F60F8F7BE6DF2774 /* Pods-AssistedHome.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -391,6 +505,7 @@
 		};
 		C0F2D514238A859D0092BA1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5C1D93124F4C7AB85DDA78F /* Pods-AssistedHome.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -408,6 +523,7 @@
 		};
 		C0F2D516238A859D0092BA1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC5E647BC12E996210E1BC1B /* Pods-AssistedHomeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -428,6 +544,7 @@
 		};
 		C0F2D517238A859D0092BA1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2674F049323A5910A4861333 /* Pods-AssistedHomeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
