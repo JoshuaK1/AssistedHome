@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE2238A8DE40045A113 /* UIView-Extension.swift */; };
+		C0836DE5238A90920045A113 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE4238A90920045A113 /* Constants.swift */; };
 		C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */; };
 		C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4FA238A859A0092BA1D /* ViewController.swift */; };
 		C0F2D4FE238A859A0092BA1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F2D4FC238A859A0092BA1D /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		376A4DAB963CD905A3051892 /* Pods_AssistedHomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssistedHomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C1D93124F4C7AB85DDA78F /* Pods-AssistedHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHome.release.xcconfig"; path = "Target Support Files/Pods-AssistedHome/Pods-AssistedHome.release.xcconfig"; sourceTree = "<group>"; };
 		BC5E647BC12E996210E1BC1B /* Pods-AssistedHomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHomeTests.debug.xcconfig"; path = "Target Support Files/Pods-AssistedHomeTests/Pods-AssistedHomeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C0836DE2238A8DE40045A113 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
+		C0836DE4238A90920045A113 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C0F2D4F5238A859A0092BA1D /* AssistedHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssistedHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0F2D4FA238A859A0092BA1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +89,6 @@
 				BC5E647BC12E996210E1BC1B /* Pods-AssistedHomeTests.debug.xcconfig */,
 				2674F049323A5910A4861333 /* Pods-AssistedHomeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -125,11 +128,13 @@
 				C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */,
 				C0F2D4FA238A859A0092BA1D /* ViewController.swift */,
 				C0F2D4FC238A859A0092BA1D /* Main.storyboard */,
+				C0836DE2238A8DE40045A113 /* UIView-Extension.swift */,
 				C0F2D4FF238A859D0092BA1D /* Assets.xcassets */,
 				C0F2D501238A859D0092BA1D /* LaunchScreen.storyboard */,
 				C0F2D504238A859D0092BA1D /* Info.plist */,
 				C0F2D518238A87810092BA1D /* StartViewController.swift */,
 				C0F2D51A238A87930092BA1D /* LoginViewController.swift */,
+				C0836DE4238A90920045A113 /* Constants.swift */,
 				C0F2D51C238A87A20092BA1D /* SignUpViewController.swift */,
 				C0F2D51E238A87AF0092BA1D /* HomeViewController.swift */,
 			);
@@ -300,6 +305,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AssistedHome/Pods-AssistedHome-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -307,6 +313,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -325,9 +332,11 @@
 				C0F2D51B238A87930092BA1D /* LoginViewController.swift in Sources */,
 				C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */,
 				C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */,
+				C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */,
 				C0F2D519238A87810092BA1D /* StartViewController.swift in Sources */,
 				C0F2D51D238A87A20092BA1D /* SignUpViewController.swift in Sources */,
 				C0F2D51F238A87AF0092BA1D /* HomeViewController.swift in Sources */,
+				C0836DE5238A90920045A113 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
