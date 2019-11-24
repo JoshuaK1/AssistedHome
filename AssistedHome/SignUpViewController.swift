@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import UIKit
+
+class SignUpViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
+    }
+    
+    
+}
+
