@@ -150,22 +150,80 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llf-Id-1Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728.985507246377" y="329.46428571428572"/>
+            <point key="canvasLocation" x="2710" y="338"/>
         </scene>
-        <!--Home View Contoller-->
+        <!--Home View Controller-->
         <scene sceneID="2eK-gd-vFS">
             <objects>
-                <viewController id="uUl-NE-mm7" customClass="HomeViewContoller" sceneMemberID="viewController">
+                <viewController id="uUl-NE-mm7" customClass="HomeViewController" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pwp-V9-uut">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWz-WT-23n">
+                                <rect key="frame" x="32" y="293" width="161" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="GPS">
+                                    <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hQ-7I-m7r">
+                                <rect key="frame" x="220" y="293" width="159" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="GPS History">
+                                    <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfd-jm-rRe">
+                                <rect key="frame" x="32" y="430" width="161" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Boundary">
+                                    <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9R-GP-SPz">
+                                <rect key="frame" x="218" y="430" width="161" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Announcements">
+                                    <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4v-bE-zKt">
+                                <rect key="frame" x="32" y="547" width="161" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Alerts">
+                                    <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9n-IN-zEO">
+                                <rect key="frame" x="218" y="547" width="161" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Reminders">
+                                    <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="g7J-LT-c84"/>
                     </view>
+                    <connections>
+                        <outlet property="AlertsButton" destination="q4v-bE-zKt" id="rj5-iq-xy8"/>
+                        <outlet property="AnnouncementsButton" destination="q9R-GP-SPz" id="zRo-qz-FdB"/>
+                        <outlet property="BoundaryButton" destination="Sfd-jm-rRe" id="Qy7-zb-oPY"/>
+                        <outlet property="GPSButton" destination="QWz-WT-23n" id="45C-kx-yhn"/>
+                        <outlet property="GPSHistoryButton" destination="5hQ-7I-m7r" id="9wH-VC-B4a"/>
+                        <outlet property="RemindersButton" destination="G9n-IN-zEO" id="svy-iw-J1P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIl-aV-9jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3903" y="-39"/>
+            <point key="canvasLocation" x="4398.5507246376819" y="9.375"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4Od-eG-qcE">
@@ -248,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaI-9o-LVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2730.434782608696" y="-425.22321428571428"/>
+            <point key="canvasLocation" x="3477" y="-394"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

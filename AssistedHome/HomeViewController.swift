@@ -7,3 +7,29 @@
 //
 
 import Foundation
+import UIKit
+
+
+class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var GPSButton: UIButton!
+    @IBOutlet weak var GPSHistoryButton: UIButton!
+    @IBOutlet weak var BoundaryButton: UIButton!
+    @IBOutlet weak var AnnouncementsButton: UIButton!
+    @IBOutlet weak var AlertsButton: UIButton!
+    @IBOutlet weak var RemindersButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
+        
+        GPSButton.setButtonStyles()
+        GPSHistoryButton.setButtonStyles()
+        BoundaryButton.setButtonStyles()
+        AnnouncementsButton.setButtonStyles()
+        AlertsButton.setButtonStyles()
+        RemindersButton.setButtonStyles()
+    }
+}
+
