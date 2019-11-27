@@ -12,7 +12,8 @@ import UIKit
 class AnnounceViewController: UIViewController {
     
     @IBOutlet weak var textView: UIView!
-
+    @IBOutlet weak var announceTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +21,9 @@ class AnnounceViewController: UIViewController {
         
         textView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         textView.roundCornerView(cornerRadius: 8.0)
+        
+        announceTextView.font = UIFont(name: "Arial", size: 20)
+        announceTextView.textColor = UIColor.white
         
     }
     

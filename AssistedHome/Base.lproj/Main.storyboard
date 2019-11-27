@@ -330,6 +330,14 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Am4-iR-Yt5">
                                 <rect key="frame" x="20" y="211" width="374" height="431"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bU1-IG-5bS">
+                                        <rect key="frame" x="8" y="8" width="358" height="408"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -337,6 +345,7 @@
                         <viewLayoutGuide key="safeArea" id="ys2-4M-i8I"/>
                     </view>
                     <connections>
+                        <outlet property="announceTextView" destination="bU1-IG-5bS" id="5II-OD-beN"/>
                         <outlet property="textView" destination="Am4-iR-Yt5" id="RLh-fX-10S"/>
                     </connections>
                 </viewController>
