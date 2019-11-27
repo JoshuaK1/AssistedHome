@@ -29,12 +29,12 @@ class HomeViewController: UIViewController {
         
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         
-        GPSButton.setButtonStyles()
-        GPSHistoryButton.setButtonStyles()
-        BoundaryButton.setButtonStyles()
-        AnnouncementsButton.setButtonStyles()
-        AlertsButton.setButtonStyles()
-        RemindersButton.setButtonStyles()
+        GPSButton           .setHomeButtonStyles()
+        GPSHistoryButton    .setHomeButtonStyles()
+        BoundaryButton      .setHomeButtonStyles()
+        AnnouncementsButton .setHomeButtonStyles()
+        AlertsButton        .setHomeButtonStyles()
+        RemindersButton     .setHomeButtonStyles()
     }
 }
 

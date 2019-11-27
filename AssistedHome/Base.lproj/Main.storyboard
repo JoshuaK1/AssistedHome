@@ -340,12 +340,26 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spj-y1-UPb">
+                                <rect key="frame" x="52" y="691" width="143" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Send"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMG-ul-UYg">
+                                <rect key="frame" x="217" y="691" width="143" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Clear"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ys2-4M-i8I"/>
                     </view>
                     <connections>
                         <outlet property="announceTextView" destination="bU1-IG-5bS" id="5II-OD-beN"/>
+                        <outlet property="clearButton" destination="LMG-ul-UYg" id="gO3-Zw-GCz"/>
+                        <outlet property="sendButton" destination="Spj-y1-UPb" id="t1u-3m-tUP"/>
                         <outlet property="textView" destination="Am4-iR-Yt5" id="RLh-fX-10S"/>
                     </connections>
                 </viewController>
@@ -355,7 +369,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="O59-vi-F1a"/>
+        <segue reference="eoL-tB-EFj"/>
         <segue reference="JJK-YQ-KjW"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>

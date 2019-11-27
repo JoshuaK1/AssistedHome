@@ -11,8 +11,17 @@ import UIKit
 
 extension UIButton {
     func setButtonStyles(){
-        self.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        self.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 30.0)
+        self.backgroundColor    = UIColor.white.withAlphaComponent(0.5)
         self.layer.cornerRadius = 7
+        self.setTitleColor(.white, for: .normal)
+        
+    }
+    
+    func setHomeButtonStyles(){
+        self.backgroundColor    = UIColor.white.withAlphaComponent(0.5)
+        self.layer.cornerRadius = 7
+        self.setTitleColor(.white, for: .normal)
         
     }
 }
