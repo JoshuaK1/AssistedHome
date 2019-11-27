@@ -315,17 +315,34 @@
         <!--Announce View Controller-->
         <scene sceneID="Vom-7Z-bbV">
             <objects>
-                <viewController id="AUu-1C-mYf" customClass="AnnounceViewController" sceneMemberID="viewController">
+                <viewController id="AUu-1C-mYf" customClass="AnnounceViewController" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wnE-dJ-UrQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What would you like to say?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbu-SJ-HJD">
+                                <rect key="frame" x="70" y="143" width="274" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Am4-iR-Yt5">
+                                <rect key="frame" x="20" y="211" width="374" height="431"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ys2-4M-i8I"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="Am4-iR-Yt5" id="RLh-fX-10S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHA-XO-dOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4716" y="165"/>
+            <point key="canvasLocation" x="4715.9420289855079" y="164.73214285714286"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

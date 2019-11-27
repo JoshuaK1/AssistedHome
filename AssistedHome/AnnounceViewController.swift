@@ -11,5 +11,17 @@ import UIKit
 
 class AnnounceViewController: UIViewController {
     
+    @IBOutlet weak var textView: UIView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
+        
+        textView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        textView.roundCornerView(cornerRadius: 8.0)
+        
+    }
+    
     
 }
