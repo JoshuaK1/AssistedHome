@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaS-LO-gWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1527.536231884058" y="18.75"/>
+            <point key="canvasLocation" x="2470" y="-394"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ynl-4E-N63">
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llf-Id-1Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="338"/>
+            <point key="canvasLocation" x="2709" y="338"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="2eK-gd-vFS">
@@ -191,6 +191,10 @@
                                 <state key="normal" title="Announcements">
                                     <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="announceButton:" destination="uUl-NE-mm7" eventType="touchUpInside" id="kv6-2K-lpA"/>
+                                    <segue destination="AUu-1C-mYf" kind="show" identifier="homeToAnnounce" id="5me-1d-xO9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4v-bE-zKt">
                                 <rect key="frame" x="32" y="547" width="161" height="110"/>
@@ -223,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIl-aV-9jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4398.5507246376819" y="9.375"/>
+            <point key="canvasLocation" x="3761" y="338"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4Od-eG-qcE">
@@ -306,12 +310,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaI-9o-LVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3477" y="-394"/>
+            <point key="canvasLocation" x="3472" y="-394"/>
+        </scene>
+        <!--Announce View Controller-->
+        <scene sceneID="Vom-7Z-bbV">
+            <objects>
+                <viewController id="AUu-1C-mYf" customClass="AnnounceViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wnE-dJ-UrQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ys2-4M-i8I"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHA-XO-dOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4716" y="165"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="O59-vi-F1a"/>
-        <segue reference="lhG-tI-MG6"/>
-        <segue reference="CMU-Rt-WKv"/>
+        <segue reference="JJK-YQ-KjW"/>
+        <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>

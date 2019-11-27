@@ -19,6 +19,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var AlertsButton: UIButton!
     @IBOutlet weak var RemindersButton: UIButton!
     
+    @IBAction func announceButton(_ sender: Any) {
+        performSegue(withIdentifier: "homeToAnnounce", sender: self)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
