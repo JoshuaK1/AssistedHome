@@ -207,6 +207,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="QED-Xg-TJt" eventType="touchUpInside" id="wJs-8e-6Ws"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRR-p7-7Pj">
                                 <rect key="frame" x="36" y="328" width="351" height="30"/>
@@ -240,6 +243,7 @@
                         <outlet property="loginEmailField" destination="zRR-p7-7Pj" id="eEO-9U-ffJ"/>
                         <outlet property="loginPasswordField" destination="6js-l8-KzD" id="vKC-md-19i"/>
                         <segue destination="dsV-Y3-ioQ" kind="show" identifier="showLoginToSignUp" id="CMU-Rt-WKv"/>
+                        <segue destination="uUl-NE-mm7" kind="show" identifier="loginToHome" id="lhG-tI-MG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaI-9o-LVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,6 +253,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="O59-vi-F1a"/>
+        <segue reference="lhG-tI-MG6"/>
         <segue reference="CMU-Rt-WKv"/>
     </inferredMetricsTieBreakers>
 </document>
