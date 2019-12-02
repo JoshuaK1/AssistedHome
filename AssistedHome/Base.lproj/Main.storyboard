@@ -319,17 +319,26 @@
         <!--Boundary View Controller-->
         <scene sceneID="vyJ-yy-SAA">
             <objects>
-                <viewController id="N2d-6p-BWN" customClass="BoundaryViewController" sceneMemberID="viewController">
+                <viewController id="N2d-6p-BWN" customClass="BoundaryViewController" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OOZ-2O-O1f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FC1-7m-1Dj">
+                                <rect key="frame" x="20" y="102" width="374" height="576"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="aGh-zO-wHQ"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="FC1-7m-1Dj" id="Eam-2V-AMX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exc-Rc-l5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4743" y="-394"/>
+            <point key="canvasLocation" x="4742.0289855072469" y="-394.41964285714283"/>
         </scene>
         <!--Announce View Controller-->
         <scene sceneID="Vom-7Z-bbV">

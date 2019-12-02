@@ -8,9 +8,10 @@
 
 import Foundation
 import UIKit
+import MapKit
 
-class BoundaryViewController: UIViewController {
-    
+class BoundaryViewController: UIViewController, MKMapViewDelegate {
+    @IBOutlet weak var mapView: MKMapView?
     
     
     override func viewDidLoad() {
@@ -18,9 +19,8 @@ class BoundaryViewController: UIViewController {
         
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         
+        
     }
     
-    
-    
-    
 }
+
