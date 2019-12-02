@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
     @IBAction func announceButton(_ sender: Any) {
         performSegue(withIdentifier: "homeToAnnounce", sender: self)
     }
+    @IBAction func boundaryButton(_ sender: Any) {
+        performSegue(withIdentifier: "HomeToBoundary", sender: self)
+    }
     
     
     override func viewDidLoad() {

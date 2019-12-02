@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C05418F72395085900D295F6 /* BoundaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05418F62395085900D295F6 /* BoundaryViewController.swift */; };
 		C063D23F238EA77C00852FF4 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */; };
 		C063D241238EB33000852FF4 /* AnnounceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063D240238EB33000852FF4 /* AnnounceViewController.swift */; };
 		C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE2238A8DE40045A113 /* UIView-Extension.swift */; };
@@ -45,6 +46,7 @@
 		376A4DAB963CD905A3051892 /* Pods_AssistedHomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssistedHomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C1D93124F4C7AB85DDA78F /* Pods-AssistedHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHome.release.xcconfig"; path = "Target Support Files/Pods-AssistedHome/Pods-AssistedHome.release.xcconfig"; sourceTree = "<group>"; };
 		BC5E647BC12E996210E1BC1B /* Pods-AssistedHomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHomeTests.debug.xcconfig"; path = "Target Support Files/Pods-AssistedHomeTests/Pods-AssistedHomeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C05418F62395085900D295F6 /* BoundaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryViewController.swift; sourceTree = "<group>"; };
 		C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		C063D240238EB33000852FF4 /* AnnounceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceViewController.swift; sourceTree = "<group>"; };
 		C0836DE2238A8DE40045A113 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */,
 				C0F2D4FA238A859A0092BA1D /* ViewController.swift */,
 				C0F2D4FC238A859A0092BA1D /* Main.storyboard */,
+				C05418F62395085900D295F6 /* BoundaryViewController.swift */,
 				C063D240238EB33000852FF4 /* AnnounceViewController.swift */,
 				C0836DE2238A8DE40045A113 /* UIView-Extension.swift */,
 				C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */,
@@ -344,6 +347,7 @@
 				C063D23F238EA77C00852FF4 /* UIButton-Extension.swift in Sources */,
 				C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */,
 				C0F2D519238A87810092BA1D /* StartViewController.swift in Sources */,
+				C05418F72395085900D295F6 /* BoundaryViewController.swift in Sources */,
 				C0F2D51D238A87A20092BA1D /* SignUpViewController.swift in Sources */,
 				C063D241238EB33000852FF4 /* AnnounceViewController.swift in Sources */,
 				C0F2D51F238A87AF0092BA1D /* HomeViewController.swift in Sources */,
