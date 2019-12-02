@@ -100,12 +100,25 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             print(placemark)
             
            let address =  placemark.createAddressString()
-        
-        // Add annotation
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        annotation.title = "Dropped pin"
-        annotation.subtitle = address
+            
+            
+            let reuseId = "pin"
+            var pinView = self.mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+            
+            // Add annotation
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = "Dropped pin"
+            annotation.subtitle = address
+            
+            if pinView == nil {
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView!.canShowCallout = true
+                pinView!.animatesDrop = true
+            }
+            
+            let button = UIButton(type: UIButton.ButtonType.detailDisclosure) as UIButton
+            
         self.mapView.addAnnotation(annotation)
     }
         
