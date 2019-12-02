@@ -16,6 +16,13 @@ class AnnounceViewController: UIViewController {
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var sendButton: UIButton!
     
+    @IBAction func sendButton(_ sender: Any) {
+    }
+    
+    
+    @IBAction func clearButton(_ sender: Any) {
+        announceTextView.text = ""
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
