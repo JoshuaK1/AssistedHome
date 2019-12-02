@@ -11,13 +11,19 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
+        
+        // Adding Gesture Recogniser to mapView
+        let gestureRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(handleTap))
+        gestureRecogniser.delegate = self
+        mapView.addGestureRecognizer(gestureRecogniser)
         
         let noLocation = CLLocationCoordinate2D()
         let viewRegion = MKCoordinateRegion.init(center: noLocation, latitudinalMeters: 200, longitudinalMeters: 200)
@@ -56,5 +62,13 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
+    @objc func handleTap(gestureRecogniser: UILongPressGestureRecognizer){
+        let location = gestureRecogniser.location(in: mapView)
+        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
+        
+        // Add annotation
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
+    }
 }
-

@@ -25,6 +25,7 @@
 		C0F2D51F238A87AF0092BA1D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D51E238A87AF0092BA1D /* HomeViewController.swift */; };
 		C0F2D521238A8B130092BA1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */; };
 		C0F2D522238A8B130092BA1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */; };
+		C0FFA24C2395347100B48F43 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFA24B2395347100B48F43 /* PinAnnotation.swift */; };
 		CC59AE00277442C17BDA4DBA /* Pods_AssistedHomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 376A4DAB963CD905A3051892 /* Pods_AssistedHomeTests.framework */; };
 		D777B087CD94A1CDFD5C5399 /* Pods_AssistedHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2B43DFA021EF7A958EF42 /* Pods_AssistedHome.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		C0F2D51C238A87A20092BA1D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C0F2D51E238A87AF0092BA1D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C0FFA24B2395347100B48F43 /* PinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		C0F2D4F7238A859A0092BA1D /* AssistedHome */ = {
 			isa = PBXGroup;
 			children = (
+				C0FFA24B2395347100B48F43 /* PinAnnotation.swift */,
 				C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */,
 				C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */,
 				C0F2D4FA238A859A0092BA1D /* ViewController.swift */,
@@ -346,6 +349,7 @@
 				C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */,
 				C063D23F238EA77C00852FF4 /* UIButton-Extension.swift in Sources */,
 				C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */,
+				C0FFA24C2395347100B48F43 /* PinAnnotation.swift in Sources */,
 				C0F2D519238A87810092BA1D /* StartViewController.swift in Sources */,
 				C05418F72395085900D295F6 /* BoundaryViewController.swift in Sources */,
 				C0F2D51D238A87A20092BA1D /* SignUpViewController.swift in Sources */,
