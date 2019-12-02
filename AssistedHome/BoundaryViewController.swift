@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 import CoreLocation
+import Contacts
 
 class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
@@ -19,6 +20,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+    
         
         // Adding Gesture Recogniser to mapView
         let gestureRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(handleTap))
@@ -62,13 +64,50 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
+    // Function to lookup address from coordinate
+    func reverseLocationLookup(for location: CLLocation, completion: @escaping (CLPlacemark?) -> Void){
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location){
+            placemarks, error in
+            
+            guard error == nil else {
+                print("Error in function" )
+                completion(nil)
+                return
+            }
+            
+            guard let placemark = placemarks?[0] else {
+                print("Placemark is nil")
+                completion(nil)
+                return
+            }
+            
+            completion(placemark)
+        }
+    }
+    
     @objc func handleTap(gestureRecogniser: UILongPressGestureRecognizer){
         let location = gestureRecogniser.location(in: mapView)
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
         
+        // Converting 2d location to CLLocation
+        let locationTitle = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        
+        // Call reverse location lookup
+        reverseLocationLookup(for: locationTitle) { placemark in
+            guard let placemark = placemark else { return }
+            
+            print(placemark)
+            
+           let address =  placemark.createAddressString()
+        
         // Add annotation
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
+        annotation.title = "Dropped pin"
+        annotation.subtitle = address
+        self.mapView.addAnnotation(annotation)
+    }
+        
     }
 }

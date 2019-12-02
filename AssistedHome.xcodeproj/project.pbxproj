@@ -26,6 +26,7 @@
 		C0F2D521238A8B130092BA1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */; };
 		C0F2D522238A8B130092BA1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */; };
 		C0FFA24C2395347100B48F43 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFA24B2395347100B48F43 /* PinAnnotation.swift */; };
+		C0FFA24E2395640A00B48F43 /* CLPlacemark-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFA24D2395640A00B48F43 /* CLPlacemark-extension.swift */; };
 		CC59AE00277442C17BDA4DBA /* Pods_AssistedHomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 376A4DAB963CD905A3051892 /* Pods_AssistedHomeTests.framework */; };
 		D777B087CD94A1CDFD5C5399 /* Pods_AssistedHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2B43DFA021EF7A958EF42 /* Pods_AssistedHome.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		C0F2D51E238A87AF0092BA1D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0FFA24B2395347100B48F43 /* PinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
+		C0FFA24D2395640A00B48F43 /* CLPlacemark-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLPlacemark-extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				C0F2D4FA238A859A0092BA1D /* ViewController.swift */,
 				C0F2D4FC238A859A0092BA1D /* Main.storyboard */,
 				C05418F62395085900D295F6 /* BoundaryViewController.swift */,
+				C0FFA24D2395640A00B48F43 /* CLPlacemark-extension.swift */,
 				C063D240238EB33000852FF4 /* AnnounceViewController.swift */,
 				C0836DE2238A8DE40045A113 /* UIView-Extension.swift */,
 				C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */,
@@ -345,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F2D51B238A87930092BA1D /* LoginViewController.swift in Sources */,
+				C0FFA24E2395640A00B48F43 /* CLPlacemark-extension.swift in Sources */,
 				C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */,
 				C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */,
 				C063D23F238EA77C00852FF4 /* UIButton-Extension.swift in Sources */,
