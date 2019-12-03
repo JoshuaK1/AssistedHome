@@ -11,12 +11,51 @@ import UIKit
 import MapKit
 import CoreLocation
 import Contacts
+import FirebaseDatabase
+import FirebaseAuth
 
 class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
     
     var boundaries: [MKPointAnnotation] = []
+    
+    // Firebase database reference
+     var ref: DatabaseReference!
+    
+    // userRef Datatbase reference
+    let userRef = Database.database().reference(withPath: "userRef")
+    
+    // function to post user specific boundaries to firebase
+    func postUserBoundaries(annotations: [MKPointAnnotation], userID: String){
+        for anno in annotations {
+            
+            let boundaryTitle      = anno.title
+            let boundarySubtitle   = anno.subtitle
+            let boundaryLatitude   = String(format: "%f", anno.coordinate.latitude)
+            let boundaryLongtitude = String(format: "%f", anno.coordinate.longitude)
+            
+            print(boundaryTitle!)
+            print(boundarySubtitle!)
+            print(boundaryLatitude)
+            print(boundaryLongtitude)
+            
+            // Post Data to Firebase
+            
+            let boundaryRef = Database.database().reference(withPath: "boundaries")
+            
+            let userBoundaries = boundaryRef.child(userID)
+            
+            // Posting to database but overwritting the values
+            
+            userBoundaries.child("latitude").setValue(boundaryLatitude)
+            userBoundaries.child("longtitude").setValue(boundaryLongtitude)
+            userBoundaries.child("subTitle").setValue(boundarySubtitle!)
+            userBoundaries.child("title").setValue(boundaryTitle!)
+            
+        }
+        
+    }
     
     // Add Swipe Gestures
     func addSwipes(){
@@ -84,6 +123,10 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        
+        //Checking current user ID
+        let userID = Auth.auth().currentUser?.uid
+        print(userID!)
         
        self.mapView.addAnnotations(boundaries)
         
@@ -190,6 +233,13 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         self.mapView.addAnnotation(annotation)
         self.boundaries.append(annotation)
         print(self.boundaries.count)
+            
+             // Get current user ID
+            
+            let userID = Auth.auth().currentUser?.uid
+            
+            // Pass through to post method
+            self.postUserBoundaries(annotations: self.boundaries, userID: userID!)
         
     }
         

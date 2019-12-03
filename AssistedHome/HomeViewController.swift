@@ -8,9 +8,14 @@
 
 import Foundation
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 
 class HomeViewController: UIViewController {
+    
+    // Database reference
+    let ref = Database.database().reference(withPath: "userRef")
     
     @IBOutlet weak var GPSButton: UIButton!
     @IBOutlet weak var GPSHistoryButton: UIButton!
@@ -26,8 +31,25 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "HomeToBoundary", sender: self)
     }
     
+    // Function to set user reference in Firebase
+    
+    func setUserRef(){
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            if !snapshot.exists() {
+                return
+                
+            }
+            let username = snapshot.childSnapshot(forPath: "UID").value
+            print("UID taken from firebase" , username!)
+            
+        })
+    }
+    
     
     override func viewDidLoad() {
+        
+        setUserRef()
+        
         super.viewDidLoad()
         
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
