@@ -16,11 +16,56 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     @IBOutlet weak var mapView: MKMapView!
     
+    // Function
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
+        if annotation is MKUserLocation {return nil}
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.animatesDrop = true
+            let calloutButton = UIButton(type: .detailDisclosure)
+            pinView!.rightCalloutAccessoryView = calloutButton
+            pinView!.sizeToFit()
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        
+        return pinView
+    }
+    
+    // Function to remove single annotation
+    func removeSingleAnnotation(annoTitle: String){
+        for annotation in self.mapView.annotations {
+            let title = annotation.subtitle
+            if title == annoTitle {
+                self.mapView.removeAnnotation(annotation)
+            }
+        }
+        
+    }
+    
+    
+    // Function for Button
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            
+            let annotationTitle = view.annotation?.subtitle
+            
+            removeSingleAnnotation(annoTitle: annotationTitle!!)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-    
+        
         
         // Adding Gesture Recogniser to mapView
         let gestureRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(handleTap))
@@ -71,7 +116,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             placemarks, error in
             
             guard error == nil else {
-                print("Error in function" )
+                print("Error")
                 completion(nil)
                 return
             }
@@ -87,6 +132,12 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     @objc func handleTap(gestureRecogniser: UILongPressGestureRecognizer){
+        
+        // Don't generate multiple pins
+        if gestureRecogniser.state != UIGestureRecognizer.State.began {
+            return
+        }
+        
         let location = gestureRecogniser.location(in: mapView)
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
         
@@ -101,23 +152,11 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
            let address =  placemark.createAddressString()
             
-            
-            let reuseId = "pin"
-            var pinView = self.mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-            
             // Add annotation
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
-            annotation.title = "Dropped pin"
+            annotation.title = "Boundary Pin"
             annotation.subtitle = address
-            
-            if pinView == nil {
-                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                pinView!.canShowCallout = true
-                pinView!.animatesDrop = true
-            }
-            
-            let button = UIButton(type: UIButton.ButtonType.detailDisclosure) as UIButton
             
         self.mapView.addAnnotation(annotation)
     }

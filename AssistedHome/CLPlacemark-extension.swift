@@ -15,8 +15,8 @@ extension CLPlacemark {
     func createAddressString() -> String {
         
         switch (self.subThoroughfare, self.thoroughfare, self.locality, self.administrativeArea, self.postalCode, self.country) {
-        case let (.some(subThoroughfare), .some(thoroughfare), .some(locality), .some(administrativeArea), .some(_), .some(_)):
-             return "\(subThoroughfare), \(thoroughfare), \(locality), \(administrativeArea)"
+        case let (.some(subThoroughfare), .some(thoroughfare), .some(locality), .some(_), .some(_), .some(_)):
+             return "\(subThoroughfare), \(thoroughfare), \(locality)"
         default:
             return ""
         }
