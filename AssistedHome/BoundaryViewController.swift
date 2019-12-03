@@ -19,24 +19,24 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     // Function
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {return nil}
-        
         let reuseId = "pin"
-        
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
-            pinView!.animatesDrop = true
+            
             let calloutButton = UIButton(type: .detailDisclosure)
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.rightCalloutAccessoryView = calloutButton
+            pinView!.canShowCallout            = true
+            pinView!.animatesDrop              = true
+            pinView!.isDraggable               = true
             pinView!.sizeToFit()
-        }
-        else {
+            
+        } else {
             pinView!.annotation = annotation
+            
         }
-        
-        
         return pinView
+        
     }
     
     // Function to remove single annotation
@@ -45,19 +45,18 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             let title = annotation.subtitle
             if title == annoTitle {
                 self.mapView.removeAnnotation(annotation)
+                
             }
         }
-        
     }
     
     
     // Function for Button
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            
             let annotationTitle = view.annotation?.subtitle
-            
             removeSingleAnnotation(annoTitle: annotationTitle!!)
+            
         }
     }
     
@@ -66,14 +65,16 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         super.viewDidLoad()
         mapView.delegate = self
         
-        
         // Adding Gesture Recogniser to mapView
-        let gestureRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(handleTap))
+        let gestureRecogniser      = UILongPressGestureRecognizer(target: self, action: #selector(handleTap))
         gestureRecogniser.delegate = self
         mapView.addGestureRecognizer(gestureRecogniser)
         
         let noLocation = CLLocationCoordinate2D()
-        let viewRegion = MKCoordinateRegion.init(center: noLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+        let viewRegion = MKCoordinateRegion.init(center: noLocation,
+                                                 latitudinalMeters: 200,
+                                                 longitudinalMeters: 200)
+        
         mapView.setRegion(viewRegion, animated: false)
         
         let locationManager             = CLLocationManager()
@@ -88,7 +89,10 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         // Zoom to current user location
         if let userLocation = locationManager.location?.coordinate {
-            let viewRegion = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            let viewRegion  = MKCoordinateRegion.init(center: userLocation,
+                                                      latitudinalMeters: 200,
+                                                      longitudinalMeters: 200)
+            
             mapView.setRegion(viewRegion, animated: false)
         }
         
@@ -138,7 +142,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             return
         }
         
-        let location = gestureRecogniser.location(in: mapView)
+        let location   = gestureRecogniser.location(in: mapView)
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
         
         // Converting 2d location to CLLocation
@@ -150,13 +154,13 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             print(placemark)
             
-           let address =  placemark.createAddressString()
+           let address = placemark.createAddressString()
             
             // Add annotation
-            let annotation = MKPointAnnotation()
+            let annotation        = MKPointAnnotation()
             annotation.coordinate = coordinate
-            annotation.title = "Boundary Pin"
-            annotation.subtitle = address
+            annotation.title      = "Boundary Pin"
+            annotation.subtitle   = address
             
         self.mapView.addAnnotation(annotation)
     }
