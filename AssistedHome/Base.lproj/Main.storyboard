@@ -325,7 +325,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FC1-7m-1Dj">
-                                <rect key="frame" x="20" y="102" width="374" height="576"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="678"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
@@ -334,6 +334,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="FC1-7m-1Dj" id="Eam-2V-AMX"/>
+                        <segue destination="uUl-NE-mm7" kind="show" identifier="MapViewToHome" id="rGd-xB-PxM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exc-Rc-l5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -404,7 +405,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
-        <segue reference="lhG-tI-MG6"/>
+        <segue reference="rGd-xB-PxM"/>
         <segue reference="CMU-Rt-WKv"/>
     </inferredMetricsTieBreakers>
 </document>

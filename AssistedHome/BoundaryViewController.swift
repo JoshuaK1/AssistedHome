@@ -16,6 +16,27 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     @IBOutlet weak var mapView: MKMapView!
     
+    var boundaries: [MKPointAnnotation] = []
+    
+    // Add Swipe Gestures
+    func addSwipes(){
+        
+        let directions:[UISwipeGestureRecognizer.Direction] = [.right, .left, .up, .down]
+        for direction in directions {
+            let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
+            gesture.direction = direction
+            view.addGestureRecognizer(gesture)
+        }
+        
+    }
+    
+    // Handle Swipe Gestures
+    @objc func handleSwipes(sender: UISwipeGestureRecognizer){
+        if sender.direction == .right{
+            performSegue(withIdentifier: "MapViewToHome", sender: self)
+        }
+    }
+    
     // Function
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {return nil}
@@ -60,10 +81,13 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        
+       self.mapView.addAnnotations(boundaries)
+        
+        addSwipes()
         
         // Adding Gesture Recogniser to mapView
         let gestureRecogniser      = UILongPressGestureRecognizer(target: self, action: #selector(handleTap))
@@ -162,7 +186,11 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             annotation.title      = "Boundary Pin"
             annotation.subtitle   = address
             
+            
         self.mapView.addAnnotation(annotation)
+        self.boundaries.append(annotation)
+        print(self.boundaries.count)
+        
     }
         
     }
