@@ -26,7 +26,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     // userRef Datatbase reference
     let userRef = Database.database().reference(withPath: "userRef")
     
-    // function to post user specific boundaries to firebase
+    // Post user boundaries to firebase
     func postUserBoundaries(annotations: [MKPointAnnotation], userID: String){
         for anno in annotations {
             
@@ -42,22 +42,20 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             // Post Data to Firebase
             
-            let boundaryRef = Database.database().reference(withPath: "boundaries")
-            
+            let boundaryRef    = Database.database().reference(withPath: "boundaries")
             let userBoundaries = boundaryRef.child(userID)
             
             let boundary = userBoundaries.child(boundarySubtitle!)
-            boundary.child("latitude").setValue(boundaryLatitude)
-            boundary.child("longtitude").setValue(boundaryLongtitude)
-            boundary.child("subTitle").setValue(boundarySubtitle!)
-            boundary.child("title").setValue(boundaryTitle!)
+            boundary.child("latitude")   .setValue(boundaryLatitude)
+            boundary.child("longtitude") .setValue(boundaryLongtitude)
+            boundary.child("subTitle")   .setValue(boundarySubtitle!)
+            boundary.child("title")      .setValue(boundaryTitle!)
         }
         
     }
     
-    // Add Swipe Gestures
+    // Add Support for swipe gestures
     func addSwipes(){
-        
         let directions:[UISwipeGestureRecognizer.Direction] = [.right, .left, .up, .down]
         for direction in directions {
             let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
@@ -74,7 +72,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
-    // Function
+    // Set properties for map views
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {return nil}
         let reuseId = "pin"
@@ -97,7 +95,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
-    // Function to remove single annotation
+    // Remove single annotation from map
     func removeSingleAnnotation(annoTitle: String){
         for annotation in self.mapView.annotations {
             let title = annotation.subtitle
@@ -109,7 +107,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     
-    // Function for Button
+    // Callout button on annotation
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             let annotationTitle = view.annotation?.subtitle
@@ -118,31 +116,30 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
-    // Add boundaries function
+    // Add boundaries to map view
     func addBoundaries(key: String){
         
-        let userID = Auth.auth().currentUser?.uid
-        
-        let boundaryRef = Database.database().reference(withPath: "boundaries")
-        
-        let uidRef = boundaryRef.child(userID!)
-        
+        // Set firebase references
+        let userID        = Auth.auth().currentUser?.uid
+        let boundaryRef   = Database.database().reference(withPath: "boundaries")
+        let uidRef        = boundaryRef.child(userID!)
         let lowerBoundary = uidRef.child(key)
         
+        // Get values from firebase snapshot
         lowerBoundary.observeSingleEvent(of: .value, with: {(snapshot) in
-            
             let value = snapshot.value as? NSDictionary
             
-            let boundaryTitle = value?["title"] as? String ?? ""
-            let boundarySubttile = value?["subTitle"] as? String ?? ""
+            let boundaryTitle      = value?["title"]      as? String ?? ""
+            let boundarySubttile   = value?["subTitle"]   as? String ?? ""
             let boundaryLongtitude = value?["longtitude"] as? String ?? ""
-            let boundaryLatitude = value?["latitude"] as? String ?? ""
+            let boundaryLatitude   = value?["latitude"]   as? String ?? ""
             
             print("from addBoundaries method", boundaryTitle)
             print("from addBoundaries method", boundarySubttile)
             print("from addBoundaries method", boundaryLongtitude)
             print("from addBoundaries method", boundaryLatitude)
             
+            // Create annotation to add to map view
             let annotation = MKPointAnnotation()
             
             // Change Longtitdue and latitude strings to doubles
@@ -164,7 +161,6 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
 
-    
     override func viewDidAppear(_ animated: Bool) {
         
         // UserID each time view loads
@@ -172,13 +168,14 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         // Pull down annotation data
         let boundaryRef = Database.database().reference(withPath: "boundaries")
-        let uidRef = boundaryRef.child(userID!)
+        let uidRef      = boundaryRef.child(userID!)
         
         uidRef.observeSingleEvent(of: .value, with: {(snapshot) in
             for value in snapshot.children {
                 let key = (value as AnyObject).key as String
                 print(key)
                 
+                // Function call to add boundaries
                 self.addBoundaries(key: key)
                 
             }
@@ -251,20 +248,19 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location){
             placemarks, error in
-            
             guard error == nil else {
                 print("Error")
                 completion(nil)
                 return
+                
             }
-            
             guard let placemark = placemarks?[0] else {
                 print("Placemark is nil")
                 completion(nil)
                 return
             }
-            
             completion(placemark)
+            
         }
     }
     
@@ -301,13 +297,11 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         print(self.boundaries.count)
             
              // Get current user ID
-            
             let userID = Auth.auth().currentUser?.uid
             
             // Pass through to post method
             self.postUserBoundaries(annotations: self.boundaries, userID: userID!)
         
     }
-        
-    }
+  }
 }
