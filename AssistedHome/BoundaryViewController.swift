@@ -118,6 +118,57 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
+    // Add boundaries function
+    func addBoundaries(key: String){
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        let boundaryRef = Database.database().reference(withPath: "boundaries")
+        
+        let uidRef = boundaryRef.child(userID!)
+        
+        let lowerBoundary = uidRef.child(key)
+        
+        lowerBoundary.observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            let boundaryTitle = value?["title"] as? String ?? ""
+            let boundarySubttile = value?["subTitle"] as? String ?? ""
+            let boundaryLongtitude = value?["longtitude"] as? String ?? ""
+            let boundaryLatitude = value?["latitude"] as? String ?? ""
+            
+            print("from addBoundaries method", boundaryTitle)
+            print("from addBoundaries method", boundarySubttile)
+            print("from addBoundaries method", boundaryLongtitude)
+            print("from addBoundaries method", boundaryLatitude)
+        
+        })
+        
+    }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // UserID each time view loads
+          let userID = Auth.auth().currentUser?.uid
+        
+        // Pull down annotation data
+        let boundaryRef = Database.database().reference(withPath: "boundaries")
+        let uidRef = boundaryRef.child(userID!)
+        
+        uidRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            for value in snapshot.children {
+                let key = (value as AnyObject).key as String
+                print(key)
+                
+                self.addBoundaries(key: key)
+                
+            }
+        })
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
