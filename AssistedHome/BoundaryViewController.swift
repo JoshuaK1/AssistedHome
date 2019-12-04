@@ -142,6 +142,23 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             print("from addBoundaries method", boundarySubttile)
             print("from addBoundaries method", boundaryLongtitude)
             print("from addBoundaries method", boundaryLatitude)
+            
+            let annotation = MKPointAnnotation()
+            
+            // Change Longtitdue and latitude strings to doubles
+            let latitudeDouble  = NumberFormatter().number(from: boundaryLatitude)?.doubleValue
+            let longtitdeDouble = NumberFormatter().number(from: boundaryLongtitude)?.doubleValue
+            
+            var coordinate = CLLocationCoordinate2D()
+            
+            coordinate.latitude  = latitudeDouble!
+            coordinate.longitude = longtitdeDouble!
+            
+            annotation.coordinate = coordinate
+            annotation.title      = boundaryTitle
+            annotation.subtitle   = boundarySubttile
+            
+            self.mapView.addAnnotation(annotation)
         
         })
         
