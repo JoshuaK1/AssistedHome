@@ -46,13 +46,11 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             let userBoundaries = boundaryRef.child(userID)
             
-            // Posting to database but overwritting the values
-            
-            userBoundaries.child("latitude").setValue(boundaryLatitude)
-            userBoundaries.child("longtitude").setValue(boundaryLongtitude)
-            userBoundaries.child("subTitle").setValue(boundarySubtitle!)
-            userBoundaries.child("title").setValue(boundaryTitle!)
-            
+            let boundary = userBoundaries.child(boundarySubtitle!)
+            boundary.child("latitude").setValue(boundaryLatitude)
+            boundary.child("longtitude").setValue(boundaryLongtitude)
+            boundary.child("subTitle").setValue(boundarySubtitle!)
+            boundary.child("title").setValue(boundaryTitle!)
         }
         
     }
