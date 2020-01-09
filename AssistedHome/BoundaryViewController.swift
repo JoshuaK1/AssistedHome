@@ -113,7 +113,40 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             let annotationTitle = view.annotation?.subtitle
             removeSingleAnnotation(annoTitle: annotationTitle!!)
             
+            print("Annotation title is", annotationTitle!!)
+            
+            removeBoundary(key: annotationTitle!!)
         }
+    }
+    
+    // Remove boundary from map view
+    func removeBoundary(key: String){
+        
+        let boundaryToRemove = key
+        
+        // Set firebase reference
+        
+        let userID        = Auth.auth().currentUser?.uid
+        let boundaryRef   = Database.database().reference(withPath: "boundaries")
+        let uidRef        = boundaryRef.child(userID!)
+        let lowerBoundary = uidRef.child(key)
+        
+        // Get values from firebase snapshot
+        lowerBoundary.observeSingleEvent(of: .value, with: {(snapshot) in
+            let value = snapshot.value as? NSDictionary
+            
+            let boundarySubtitle = value?["subTitle"] as? String ?? ""
+            
+            print("from removeBoundary method", boundarySubtitle)
+            print("Boundary to remove", boundaryToRemove)
+            
+            // Logic to ensure the correct boundary is removed
+            if(boundarySubtitle == boundaryToRemove){
+                lowerBoundary.setValue(nil)
+                
+            }
+        })
+        
     }
     
     // Add boundaries to map view
