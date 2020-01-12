@@ -12,6 +12,7 @@
 		C063D241238EB33000852FF4 /* AnnounceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063D240238EB33000852FF4 /* AnnounceViewController.swift */; };
 		C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE2238A8DE40045A113 /* UIView-Extension.swift */; };
 		C0836DE5238A90920045A113 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE4238A90920045A113 /* Constants.swift */; };
+		C08BE83023CB6C60009A5752 /* icons8-delete-bin-64.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */; };
 		C0D0F2EA238AAC9C00938421 /* UITextField-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */; };
 		C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */; };
 		C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4FA238A859A0092BA1D /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		C063D240238EB33000852FF4 /* AnnounceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceViewController.swift; sourceTree = "<group>"; };
 		C0836DE2238A8DE40045A113 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		C0836DE4238A90920045A113 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-bin-64.png"; sourceTree = "<group>"; };
 		C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField-Extension.swift"; sourceTree = "<group>"; };
 		C0F2D4F5238A859A0092BA1D /* AssistedHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssistedHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		C0F2D4F7238A859A0092BA1D /* AssistedHome */ = {
 			isa = PBXGroup;
 			children = (
+				C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */,
 				C0FFA24B2395347100B48F43 /* PinAnnotation.swift */,
 				C0F2D520238A8B130092BA1D /* GoogleService-Info.plist */,
 				C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */,
@@ -252,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08BE83023CB6C60009A5752 /* icons8-delete-bin-64.png in Resources */,
 				C0F2D503238A859D0092BA1D /* LaunchScreen.storyboard in Resources */,
 				C0F2D521238A8B130092BA1D /* GoogleService-Info.plist in Resources */,
 				C0F2D500238A859D0092BA1D /* Assets.xcassets in Resources */,
