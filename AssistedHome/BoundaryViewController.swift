@@ -79,9 +79,12 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         if pinView == nil {
             
+            let deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            deleteButton.setImage(UIImage(named: "icons8-delete-bin-64.png"), for: .normal)
+            
             let calloutButton = UIButton(type: .detailDisclosure)
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.rightCalloutAccessoryView = calloutButton
+            pinView!.rightCalloutAccessoryView = deleteButton
             pinView!.canShowCallout            = true
             pinView!.animatesDrop              = true
             pinView!.isDraggable               = true
