@@ -455,11 +455,12 @@
                         <outlet property="clearButton" destination="LMG-ul-UYg" id="gO3-Zw-GCz"/>
                         <outlet property="sendButton" destination="Spj-y1-UPb" id="t1u-3m-tUP"/>
                         <outlet property="textView" destination="Am4-iR-Yt5" id="RLh-fX-10S"/>
+                        <segue destination="uUl-NE-mm7" kind="show" identifier="AnnounceViewToHome" id="A30-40-v2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHA-XO-dOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4784" y="338"/>
+            <point key="canvasLocation" x="4742" y="338"/>
         </scene>
     </scenes>
     <resources>
@@ -467,7 +468,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="O59-vi-F1a"/>
-        <segue reference="JJK-YQ-KjW"/>
+        <segue reference="A30-40-v2Z"/>
         <segue reference="CMU-Rt-WKv"/>
     </inferredMetricsTieBreakers>
 </document>
