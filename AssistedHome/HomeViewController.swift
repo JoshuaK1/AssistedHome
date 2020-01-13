@@ -17,6 +17,9 @@ class HomeViewController: UIViewController {
     // Database reference
     let ref = Database.database().reference(withPath: "userRef")
     
+    @IBOutlet weak var TimeLabel: UILabel!
+    @IBOutlet weak var DateLabelTwo: UILabel!
+    @IBOutlet weak var DateLabelOne: UILabel!
     @IBOutlet weak var GPSButton: UIButton!
     @IBOutlet weak var GPSHistoryButton: UIButton!
     @IBOutlet weak var BoundaryButton: UIButton!
@@ -32,7 +35,6 @@ class HomeViewController: UIViewController {
     }
     
     // Function to set user reference in Firebase
-    
     func setUserRef(){
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if !snapshot.exists() {
@@ -45,10 +47,33 @@ class HomeViewController: UIViewController {
         })
     }
     
+    func timeLabel(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        
+        let timeString = "\(dateFormatter.string(from: Date() as Date))"
+        
+        TimeLabel.text = String(timeString)
+        
+        
+    }
+    
+    func dateLabel(){
+        let today = Date()
+        let weekday = Calendar.current.component(.weekday, from: today)
+        let month = Calendar.current.component(.month, from: today)
+        let date = Calendar.current.component(.day, from: today)
+        
+        DateLabelOne.text = Calendar.current.weekdaySymbols[weekday-1]
+        DateLabelTwo.text = ",  \(Calendar.current.shortMonthSymbols[month-1]) \(date)"
+    }
+    
     
     override func viewDidLoad() {
         
         setUserRef()
+        dateLabel()
+        timeLabel()
         
         super.viewDidLoad()
         
