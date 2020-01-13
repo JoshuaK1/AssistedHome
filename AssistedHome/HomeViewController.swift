@@ -27,6 +27,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var AlertsButton: UIButton!
     @IBOutlet weak var RemindersButton: UIButton!
     
+    @IBAction func GPSButton(_ sender: Any) {
+        performSegue(withIdentifier: "GPSButtonToGPSView", sender: self)
+    }
+    
     @IBAction func announceButton(_ sender: Any) {
         performSegue(withIdentifier: "homeToAnnounce", sender: self)
     }

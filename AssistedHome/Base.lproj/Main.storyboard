@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llf-Id-1Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2683" y="338"/>
+            <point key="canvasLocation" x="2500" y="338"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="2eK-gd-vFS">
@@ -187,6 +187,9 @@
                                 <state key="normal" title="GPS">
                                     <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="GPSButton:" destination="uUl-NE-mm7" eventType="touchUpInside" id="ZsX-JF-Kvd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfd-jm-rRe">
                                 <rect key="frame" x="32" y="506" width="161" height="96"/>
@@ -275,11 +278,36 @@
                         <outlet property="RemindersButton" destination="G9n-IN-zEO" id="svy-iw-J1P"/>
                         <outlet property="TimeLabel" destination="uhw-2i-wvj" id="DZi-am-9dF"/>
                         <segue destination="N2d-6p-BWN" kind="show" identifier="HomeToBoundary" id="FxC-zg-rSJ"/>
+                        <segue destination="Asz-Ty-bnG" kind="show" identifier="GPSButtonToGPSView" id="dda-HB-l2h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIl-aV-9jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3760.8695652173915" y="337.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mo4-Dp-nW7">
+            <objects>
+                <viewController id="Asz-Ty-bnG" customClass="GPSViewController" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7qq-hc-Otm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PsQ-8D-M31">
+                                <rect key="frame" x="0.0" y="-11" width="414" height="831"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="HuA-Su-dVw"/>
+                    </view>
+                    <connections>
+                        <segue destination="uUl-NE-mm7" kind="show" identifier="GPSViewToHomeView" id="eDS-Iq-MPs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l7X-4D-pfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2955" y="1067"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4Od-eG-qcE">
@@ -468,7 +496,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="O59-vi-F1a"/>
-        <segue reference="A30-40-v2Z"/>
+        <segue reference="eDS-Iq-MPs"/>
         <segue reference="CMU-Rt-WKv"/>
     </inferredMetricsTieBreakers>
 </document>
