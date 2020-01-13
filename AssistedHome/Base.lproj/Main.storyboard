@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llf-Id-1Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="338"/>
+            <point key="canvasLocation" x="2683" y="338"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="2eK-gd-vFS">
@@ -466,8 +466,8 @@
         <image name="AssistedHomeTwo.png" width="377" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eoL-tB-EFj"/>
-        <segue reference="lhG-tI-MG6"/>
+        <segue reference="O59-vi-F1a"/>
+        <segue reference="JJK-YQ-KjW"/>
         <segue reference="CMU-Rt-WKv"/>
     </inferredMetricsTieBreakers>
 </document>
