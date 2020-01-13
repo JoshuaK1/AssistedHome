@@ -17,6 +17,7 @@ class AnnounceViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     
     @IBAction func sendButton(_ sender: Any) {
+        announceTextView.text = ""
     }
     
     
