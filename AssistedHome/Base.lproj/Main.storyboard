@@ -122,31 +122,24 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0065065827220678329" green="0.66278809309005737" blue="0.84303021430969238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xuz-ah-1K9">
-                                <rect key="frame" x="48" y="295" width="333" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-OC-e2S">
-                                <rect key="frame" x="48" y="348" width="333" height="30"/>
+                                <rect key="frame" x="48" y="406" width="333" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZE-5q-NyH">
-                                <rect key="frame" x="48" y="401" width="333" height="30"/>
+                                <rect key="frame" x="48" y="459" width="333" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jds-bu-N0r">
-                                <rect key="frame" x="97" y="552" width="221" height="48"/>
+                                <rect key="frame" x="48" y="596" width="333" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -155,6 +148,24 @@
                                     <segue destination="uUl-NE-mm7" kind="show" identifier="SignUpToHome" id="JJK-YQ-KjW"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AssistedHomeTwo.png" translatesAutoresizingMaskIntoConstraints="NO" id="HMW-wU-y5R">
+                                <rect key="frame" x="139" y="78" width="137" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ASSISTED HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-d9-NW0">
+                                <rect key="frame" x="112" y="224" width="204" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="29"/>
+                                <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xuz-ah-1K9">
+                                <rect key="frame" x="48" y="353" width="333" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="5fq-nV-Z85"/>
@@ -170,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llf-Id-1Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2500" y="338"/>
+            <point key="canvasLocation" x="2498.5507246376815" y="337.5"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="2eK-gd-vFS">
@@ -496,8 +507,8 @@
         <image name="AssistedHomeTwo.png" width="377" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O59-vi-F1a"/>
-        <segue reference="eDS-Iq-MPs"/>
-        <segue reference="CMU-Rt-WKv"/>
+        <segue reference="eoL-tB-EFj"/>
+        <segue reference="JJK-YQ-KjW"/>
+        <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>
