@@ -24,8 +24,29 @@ class AnnounceViewController: UIViewController {
     @IBAction func clearButton(_ sender: Any) {
         announceTextView.text = ""
     }
+    
+    //Add support for swipe gestures
+    func addSwipes(){
+        let directions:[UISwipeGestureRecognizer.Direction] = [.right, .left, .up, .down]
+        for direction in directions {
+            let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
+            gesture.direction = direction
+            view.addGestureRecognizer(gesture)
+        }
+        
+    }
+    
+    //Handle swipe gestures
+    @objc func handleSwipes(sender: UISwipeGestureRecognizer){
+        if sender.direction == .right{
+            performSegue(withIdentifier: "AnnounceViewToHome", sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addSwipes()
         
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         

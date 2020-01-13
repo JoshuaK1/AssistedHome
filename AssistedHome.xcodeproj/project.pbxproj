@@ -11,6 +11,7 @@
 		C05418F72395085900D295F6 /* BoundaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05418F62395085900D295F6 /* BoundaryViewController.swift */; };
 		C063D23F238EA77C00852FF4 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */; };
 		C063D241238EB33000852FF4 /* AnnounceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063D240238EB33000852FF4 /* AnnounceViewController.swift */; };
+		C078303423CC7B2200878DD3 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078303323CC7B2200878DD3 /* GPSViewController.swift */; };
 		C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE2238A8DE40045A113 /* UIView-Extension.swift */; };
 		C0836DE5238A90920045A113 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE4238A90920045A113 /* Constants.swift */; };
 		C08BE83223CB7574009A5752 /* AssistedHomeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */; };
@@ -55,6 +56,7 @@
 		C05418F62395085900D295F6 /* BoundaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryViewController.swift; sourceTree = "<group>"; };
 		C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		C063D240238EB33000852FF4 /* AnnounceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceViewController.swift; sourceTree = "<group>"; };
+		C078303323CC7B2200878DD3 /* GPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		C0836DE2238A8DE40045A113 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		C0836DE4238A90920045A113 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AssistedHomeLogo.png; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				C0F2D51C238A87A20092BA1D /* SignUpViewController.swift */,
 				C0F2D51E238A87AF0092BA1D /* HomeViewController.swift */,
 				C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */,
+				C078303323CC7B2200878DD3 /* GPSViewController.swift */,
 			);
 			path = AssistedHome;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F2D51B238A87930092BA1D /* LoginViewController.swift in Sources */,
+				C078303423CC7B2200878DD3 /* GPSViewController.swift in Sources */,
 				C0FFA24E2395640A00B48F43 /* CLPlacemark-extension.swift in Sources */,
 				C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */,
 				C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */,
