@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
         let date = Calendar.current.component(.day, from: today)
         
         DateLabelOne.text = Calendar.current.weekdaySymbols[weekday-1]
-        DateLabelTwo.text = ",  \(Calendar.current.shortMonthSymbols[month-1]) \(date)"
+        DateLabelTwo.text = "| \(Calendar.current.shortMonthSymbols[month-1]) \(date)"
     }
     
     
