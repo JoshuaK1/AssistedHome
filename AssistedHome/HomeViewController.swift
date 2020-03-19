@@ -14,9 +14,13 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController {
     
+    var menuShowing = false
+    
     // Database reference
     let ref = Database.database().reference(withPath: "userRef")
     
+    @IBOutlet weak var LeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var AccountView: UIView!
     @IBOutlet weak var TimeLabel: UILabel!
     @IBOutlet weak var DateLabelTwo: UILabel!
     @IBOutlet weak var DateLabelOne: UILabel!
@@ -26,6 +30,21 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var AnnouncementsButton: UIButton!
     @IBOutlet weak var AlertsButton: UIButton!
     @IBOutlet weak var RemindersButton: UIButton!
+    
+    
+    @IBAction func AccountShow(_ sender: Any) {
+        if (menuShowing){
+            LeadingConstraint.constant = -230
+        } else {
+            LeadingConstraint.constant = 0
+            UIView.animate(withDuration: 0.2, delay: 0.0, options:.curveEaseIn, animations: {
+                self.view.layoutIfNeeded()
+                })
+        }
+        menuShowing = !menuShowing
+    }
+    
+    
     
     @IBAction func GPSButton(_ sender: Any) {
         performSegue(withIdentifier: "GPSButtonToGPSView", sender: self)
@@ -78,6 +97,8 @@ class HomeViewController: UIViewController {
         setUserRef()
         dateLabel()
         timeLabel()
+        
+        LeadingConstraint.constant = -230
         
         super.viewDidLoad()
         
