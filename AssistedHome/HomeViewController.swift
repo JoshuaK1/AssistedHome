@@ -35,6 +35,9 @@ class HomeViewController: UIViewController {
     @IBAction func AccountShow(_ sender: Any) {
         if (menuShowing){
             LeadingConstraint.constant = -230
+            UIView.animate(withDuration: 0.2, delay: 0.0, options:.curveEaseIn, animations: {
+                self.view.layoutIfNeeded()
+            })
         } else {
             LeadingConstraint.constant = 0
             UIView.animate(withDuration: 0.2, delay: 0.0, options:.curveEaseIn, animations: {
@@ -92,7 +95,12 @@ class HomeViewController: UIViewController {
     }
     
     
+    
     override func viewDidLoad() {
+        
+        AccountView.backgroundColor = UIColor(white: 1, alpha: 0.8)
+      //  AccountView.layer.cornerRadius = 10
+        AccountView.roundCornerView(cornerRadius: 10)
         
         setUserRef()
         dateLabel()
