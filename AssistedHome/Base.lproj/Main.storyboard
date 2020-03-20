@@ -288,7 +288,19 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvE-LU-guz">
                                 <rect key="frame" x="0.0" y="44" width="210" height="818"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgh-oB-4oZ">
+                                        <rect key="frame" x="81" y="106" width="48" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="LogoutButton:" destination="uUl-NE-mm7" eventType="touchUpInside" id="BVn-o3-8Vx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="RyV-NK-HXj"/>
                                     <constraint firstAttribute="height" constant="818" id="uZy-sY-hNQ"/>
@@ -317,11 +329,12 @@
                         <outlet property="TimeLabel" destination="uhw-2i-wvj" id="DZi-am-9dF"/>
                         <segue destination="N2d-6p-BWN" kind="show" identifier="HomeToBoundary" id="FxC-zg-rSJ"/>
                         <segue destination="Asz-Ty-bnG" kind="show" identifier="GPSButtonToGPSView" id="dda-HB-l2h"/>
+                        <segue destination="3lu-Y5-ObO" kind="show" identifier="LogoutToHome" id="7as-kx-OJJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIl-aV-9jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3760.8695652173915" y="337.5"/>
+            <point key="canvasLocation" x="3767" y="367"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mo4-Dp-nW7">

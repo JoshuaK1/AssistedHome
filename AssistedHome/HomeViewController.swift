@@ -32,6 +32,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var RemindersButton: UIButton!
     
     
+    @IBAction func LogoutButton(_ sender: Any) {
+        performSegue(withIdentifier: "LogoutToHome", sender: self)
+    }
+    
+    
     @IBAction func AccountShow(_ sender: Any) {
         if (menuShowing){
             LeadingConstraint.constant = -230
@@ -97,9 +102,6 @@ class HomeViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
-        AccountView.backgroundColor = UIColor(white: 1, alpha: 0.8)
-      //  AccountView.layer.cornerRadius = 10
         AccountView.roundCornerView(cornerRadius: 10)
         
         setUserRef()
@@ -111,6 +113,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
+        AccountView.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         
         GPSButton           .setHomeButtonStyles()
         GPSHistoryButton    .setHomeButtonStyles()
