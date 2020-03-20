@@ -30,7 +30,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var AnnouncementsButton: UIButton!
     @IBOutlet weak var AlertsButton: UIButton!
     @IBOutlet weak var RemindersButton: UIButton!
+    @IBOutlet weak var AccountViewButton: UIButton!
     
+    
+    @IBAction func AccountViewButton(_ sender: Any) {
+        performSegue(withIdentifier: "HomeToAccount", sender: self)
+        
+    }
     
     @IBAction func LogoutButton(_ sender: Any) {
         performSegue(withIdentifier: "LogoutToHome", sender: self)
