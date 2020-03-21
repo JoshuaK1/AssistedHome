@@ -10,19 +10,60 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
-
+import CoreLocation
+import UserNotifications
 
 class HomeViewController: UIViewController {
+    
+    var menuShowing = false
     
     // Database reference
     let ref = Database.database().reference(withPath: "userRef")
     
+    @IBOutlet weak var LeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var AccountView: UIView!
+    @IBOutlet weak var TimeLabel: UILabel!
+    @IBOutlet weak var DateLabelTwo: UILabel!
+    @IBOutlet weak var DateLabelOne: UILabel!
     @IBOutlet weak var GPSButton: UIButton!
     @IBOutlet weak var GPSHistoryButton: UIButton!
     @IBOutlet weak var BoundaryButton: UIButton!
     @IBOutlet weak var AnnouncementsButton: UIButton!
     @IBOutlet weak var AlertsButton: UIButton!
     @IBOutlet weak var RemindersButton: UIButton!
+    @IBOutlet weak var AccountViewButton: UIButton!
+    
+    
+    @IBAction func AccountViewButton(_ sender: Any) {
+        performSegue(withIdentifier: "HomeToAccount", sender: self)
+        
+    }
+    
+    @IBAction func LogoutButton(_ sender: Any) {
+        performSegue(withIdentifier: "LogoutToHome", sender: self)
+    }
+    
+    
+    @IBAction func AccountShow(_ sender: Any) {
+        if (menuShowing){
+            LeadingConstraint.constant = -230
+            UIView.animate(withDuration: 0.2, delay: 0.0, options:.curveEaseIn, animations: {
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            LeadingConstraint.constant = 0
+            UIView.animate(withDuration: 0.2, delay: 0.0, options:.curveEaseIn, animations: {
+                self.view.layoutIfNeeded()
+                })
+        }
+        menuShowing = !menuShowing
+    }
+    
+    
+    
+    @IBAction func GPSButton(_ sender: Any) {
+        performSegue(withIdentifier: "GPSButtonToGPSView", sender: self)
+    }
     
     @IBAction func announceButton(_ sender: Any) {
         performSegue(withIdentifier: "homeToAnnounce", sender: self)
@@ -32,7 +73,6 @@ class HomeViewController: UIViewController {
     }
     
     // Function to set user reference in Firebase
-    
     func setUserRef(){
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if !snapshot.exists() {
@@ -45,14 +85,60 @@ class HomeViewController: UIViewController {
         })
     }
     
+    func timeLabel(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        
+        let timeString = "\(dateFormatter.string(from: Date() as Date))"
+        
+        TimeLabel.text = String(timeString)
+        
+        
+    }
+    
+    func dateLabel(){
+        let today = Date()
+        let weekday = Calendar.current.component(.weekday, from: today)
+        let month = Calendar.current.component(.month, from: today)
+        let date = Calendar.current.component(.day, from: today)
+        
+        DateLabelOne.text = Calendar.current.weekdaySymbols[weekday-1]
+        DateLabelTwo.text = "| \(Calendar.current.shortMonthSymbols[month-1]) \(date)"
+    }
+    
+    // Location Fencing Stuff
+    
+    func geoFencing(latitude: Double, longtitude: Double){
+        
+        let geoFenceCenter = CLLocationCoordinate2DMake(latitude, longtitude)
+        
+        let geoFenceRegion = CLCircularRegion(center: geoFenceCenter,
+                                              radius: 100,
+                                              identifier: "UniqueIdentifier")
+        
+        geoFenceRegion.notifyOnEntry = true
+        geoFenceRegion.notifyOnExit  = true
+        
+        let locationManager = CLLocationManager()
+        
+        locationManager.startMonitoring(for: geoFenceRegion)
+        
+    }
     
     override func viewDidLoad() {
+        AccountView.roundCornerView(cornerRadius: 10)
         
         setUserRef()
+        dateLabel()
+        timeLabel()
+        
+        LeadingConstraint.constant = -230
         
         super.viewDidLoad()
         
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
+        AccountView.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
+        
         
         GPSButton           .setHomeButtonStyles()
         GPSHistoryButton    .setHomeButtonStyles()
@@ -60,6 +146,8 @@ class HomeViewController: UIViewController {
         AnnouncementsButton .setHomeButtonStyles()
         AlertsButton        .setHomeButtonStyles()
         RemindersButton     .setHomeButtonStyles()
+        
+        
     }
 }
 

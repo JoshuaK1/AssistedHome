@@ -12,6 +12,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var FooterView: UIView!
     @IBOutlet weak var loginEmailField: UITextField!
