@@ -15,12 +15,12 @@
 		C078303423CC7B2200878DD3 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078303323CC7B2200878DD3 /* GPSViewController.swift */; };
 		C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE2238A8DE40045A113 /* UIView-Extension.swift */; };
 		C0836DE5238A90920045A113 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE4238A90920045A113 /* Constants.swift */; };
-<<<<<<< HEAD
+
 		C08BE83223CB7574009A5752 /* AssistedHomeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */; };
-=======
+
 		C08BE83423CB7A06009A5752 /* AssistedHomeTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE83323CB7A06009A5752 /* AssistedHomeTwo.png */; };
 		C08BE83023CB6C60009A5752 /* icons8-delete-bin-64.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */; };
->>>>>>> master
+
 		C0D0F2EA238AAC9C00938421 /* UITextField-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */; };
 		C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */; };
 		C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4FA238A859A0092BA1D /* ViewController.swift */; };
@@ -65,12 +65,12 @@
 		C078303323CC7B2200878DD3 /* GPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		C0836DE2238A8DE40045A113 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		C0836DE4238A90920045A113 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
+
 		C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AssistedHomeLogo.png; sourceTree = "<group>"; };
-=======
+
 		C08BE83323CB7A06009A5752 /* AssistedHomeTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AssistedHomeTwo.png; path = ../../../Downloads/AssistedHomeTwo.png; sourceTree = "<group>"; };
 		C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-bin-64.png"; sourceTree = "<group>"; };
->>>>>>> master
+
 		C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField-Extension.swift"; sourceTree = "<group>"; };
 		C0F2D4F5238A859A0092BA1D /* AssistedHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssistedHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
