@@ -106,12 +106,9 @@ class HomeViewController: UIViewController {
         DateLabelTwo.text = "| \(Calendar.current.shortMonthSymbols[month-1]) \(date)"
     }
     
-    // Location Fencing Stuff
-    
+    // Geofencing
     func geoFencing(latitude: Double, longtitude: Double){
-        
         let geoFenceCenter = CLLocationCoordinate2DMake(latitude, longtitude)
-        
         let geoFenceRegion = CLCircularRegion(center: geoFenceCenter,
                                               radius: 100,
                                               identifier: "UniqueIdentifier")
@@ -120,7 +117,6 @@ class HomeViewController: UIViewController {
         geoFenceRegion.notifyOnExit  = true
         
         let locationManager = CLLocationManager()
-        
         locationManager.startMonitoring(for: geoFenceRegion)
         
     }
