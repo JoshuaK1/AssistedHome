@@ -361,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yvm-9G-Grr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5335" y="1263"/>
+            <point key="canvasLocation" x="5243" y="1042"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mo4-Dp-nW7">
@@ -574,7 +574,6 @@
         <image name="AssistedHomeLogo.png" width="400" height="258"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5me-1d-xO9"/>
         <segue reference="eoL-tB-EFj"/>
         <segue reference="A30-40-v2Z"/>
         <segue reference="CMU-Rt-WKv"/>

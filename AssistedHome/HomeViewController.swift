@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
-
+import CoreLocation
+import UserNotifications
 
 class HomeViewController: UIViewController {
     
@@ -105,7 +106,24 @@ class HomeViewController: UIViewController {
         DateLabelTwo.text = "| \(Calendar.current.shortMonthSymbols[month-1]) \(date)"
     }
     
+    // Location Fencing Stuff
     
+    func geoFencing(latitude: Double, longtitude: Double){
+        
+        let geoFenceCenter = CLLocationCoordinate2DMake(latitude, longtitude)
+        
+        let geoFenceRegion = CLCircularRegion(center: geoFenceCenter,
+                                              radius: 100,
+                                              identifier: "UniqueIdentifier")
+        
+        geoFenceRegion.notifyOnEntry = true
+        geoFenceRegion.notifyOnExit  = true
+        
+        let locationManager = CLLocationManager()
+        
+        locationManager.startMonitoring(for: geoFenceRegion)
+        
+    }
     
     override func viewDidLoad() {
         AccountView.roundCornerView(cornerRadius: 10)
@@ -121,12 +139,15 @@ class HomeViewController: UIViewController {
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         AccountView.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         
+        
         GPSButton           .setHomeButtonStyles()
         GPSHistoryButton    .setHomeButtonStyles()
         BoundaryButton      .setHomeButtonStyles()
         AnnouncementsButton .setHomeButtonStyles()
         AlertsButton        .setHomeButtonStyles()
         RemindersButton     .setHomeButtonStyles()
+        
+        
     }
 }
 
