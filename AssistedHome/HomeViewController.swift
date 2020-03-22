@@ -13,7 +13,7 @@ import FirebaseAuth
 import CoreLocation
 import UserNotifications
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     var menuShowing = false
     
@@ -106,22 +106,27 @@ class HomeViewController: UIViewController {
         DateLabelTwo.text = "| \(Calendar.current.shortMonthSymbols[month-1]) \(date)"
     }
     
-    // Geofencing
-    func geoFencing(latitude: Double, longtitude: Double){
-        let geoFenceCenter = CLLocationCoordinate2DMake(latitude, longtitude)
-        let geoFenceRegion = CLCircularRegion(center: geoFenceCenter,
-                                              radius: 100,
-                                              identifier: "UniqueIdentifier")
-        
-        geoFenceRegion.notifyOnEntry = true
-        geoFenceRegion.notifyOnExit  = true
-        
-        let locationManager = CLLocationManager()
-        locationManager.startMonitoring(for: geoFenceRegion)
-        
-    }
+    let locationManager: CLLocationManager = CLLocationManager()
+    
+    // Functions for enterring and exiting regions
     
     override func viewDidLoad() {
+        
+        // Notitifications when enter and exit a geofence
+        
+        locationManager.delegate = self
+        
+        locationManager.requestAlwaysAuthorization()
+        
+        locationManager.startUpdatingLocation()
+        
+        locationManager.distanceFilter = 100
+        
+        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(54.687353, -5.882736), radius: 100, identifier: "TestLocation")
+        
+        locationManager.startMonitoring(for: geoFenceRegion)
+        
+        
         AccountView.roundCornerView(cornerRadius: 10)
         
         setUserRef()
@@ -144,6 +149,42 @@ class HomeViewController: UIViewController {
         RemindersButton     .setHomeButtonStyles()
         
         
+    }
+    
+    func postLocalNotifications(eventTitle:String){
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        
+        content.title = eventTitle
+        content.body = "Region test"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        let notificationRequest: UNNotificationRequest = UNNotificationRequest(identifier: "Region", content: content, trigger: trigger)
+        
+        notificationCenter.add(notificationRequest, withCompletionHandler: {(error) in
+            if let error = error {
+                print (error)
+            } else {
+                print("Notification added")
+            }
+        })
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion){
+        print("Entered: \(region.identifier)")
+        
+        postLocalNotifications(eventTitle: region.identifier)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
+        print("Exited: \(region.identifier)")
+        
+        postLocalNotifications(eventTitle: region.identifier)
     }
 }
 
