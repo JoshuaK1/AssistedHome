@@ -13,6 +13,7 @@ import CoreLocation
 import Contacts
 import FirebaseDatabase
 import FirebaseAuth
+import UserNotifications
 
 class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
@@ -152,6 +153,42 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
+    // Add monitored region
+    func postLocalNotifications(eventTitle: String){
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        
+        content.title = eventTitle
+        content.body  = "User has exited the safe boundary"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        let notificationRequest: UNNotificationRequest = UNNotificationRequest(identifier: eventTitle, content: content, trigger: trigger)
+        
+        notificationCenter.add(notificationRequest,withCompletionHandler: {(error) in
+            if let error = error {
+                print (error)
+            } else {
+                print("Notification added")
+            }
+        })
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion){
+        print("Entered: \(region.identifier)")
+        
+        postLocalNotifications(eventTitle: region.identifier)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
+        print("Exited: \(region.identifier)")
+        
+        postLocalNotifications(eventTitle: region.identifier)
+    }
+    
     // Add boundaries to map view
     func addBoundaries(key: String){
         
@@ -184,6 +221,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             var coordinate = CLLocationCoordinate2D()
             
+            
             coordinate.latitude  = latitudeDouble!
             coordinate.longitude = longtitdeDouble!
             
@@ -192,6 +230,23 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             annotation.subtitle   = boundarySubttile
             
             self.mapView.addAnnotation(annotation)
+            
+            // Start monitoring for locations
+            let locationManager: CLLocationManager = CLLocationManager()
+            
+            locationManager.delegate = self
+            
+            locationManager.startUpdatingLocation()
+            
+            locationManager.distanceFilter = 100
+            
+            let geoFencingRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(latitudeDouble!, longtitdeDouble!), radius: 100, identifier: boundaryTitle)
+            
+            locationManager.startMonitoring(for: geoFencingRegion)
+            
+            // Call function to add monitored region
+            self.postLocalNotifications(eventTitle: boundaryTitle)
+            
         
         })
         
