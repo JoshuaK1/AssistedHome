@@ -69,8 +69,9 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             locationManager.startMonitoring(for: geoFencingRegion)
             
-            // Call function to add monitored region
-//            self.postLocalNotifications(eventTitle: boundarySubtitle!)
+            // Post identifier go GeoFences Struct
+            GeoFences.geoFences.append(geoFencingRegion)
+            
         }
         
     }
@@ -179,6 +180,21 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     func removePendingNotifications(identifier: String){
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        for fence in GeoFences.geoFences {
+            if fence.identifier == identifier {
+                let locationManager = CLLocationManager()
+                
+                locationManager.stopMonitoring(for: fence)
+                
+                GeoFences.geoFences.removeAll()
+                
+                print("No longer monitor for region")
+                
+                
+            }
+        }
+    
     }
     
     // Add boundaries to map view
@@ -370,4 +386,11 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
   }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // when app is onpen and in foregroud
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    
 }

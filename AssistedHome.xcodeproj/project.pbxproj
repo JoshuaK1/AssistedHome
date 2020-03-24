@@ -10,17 +10,14 @@
 		C00E19E62424B99500710AFE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E19E52424B99500710AFE /* AccountViewController.swift */; };
 		C03EA9E323CC65CC00BE610C /* icons8-delete-bin-64.png in Resources */ = {isa = PBXBuildFile; fileRef = C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */; };
 		C05418F72395085900D295F6 /* BoundaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05418F62395085900D295F6 /* BoundaryViewController.swift */; };
+		C061F9BE242A678A003FA76A /* GeoFenceStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061F9BD242A678A003FA76A /* GeoFenceStruct.swift */; };
 		C063D23F238EA77C00852FF4 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */; };
 		C063D241238EB33000852FF4 /* AnnounceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063D240238EB33000852FF4 /* AnnounceViewController.swift */; };
 		C078303423CC7B2200878DD3 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078303323CC7B2200878DD3 /* GPSViewController.swift */; };
 		C0836DE3238A8DE40045A113 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE2238A8DE40045A113 /* UIView-Extension.swift */; };
 		C0836DE5238A90920045A113 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE4238A90920045A113 /* Constants.swift */; };
-
-		C08BE83223CB7574009A5752 /* AssistedHomeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */; };
-
-		C08BE83423CB7A06009A5752 /* AssistedHomeTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE83323CB7A06009A5752 /* AssistedHomeTwo.png */; };
 		C08BE83023CB6C60009A5752 /* icons8-delete-bin-64.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */; };
-
+		C08BE83223CB7574009A5752 /* AssistedHomeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */; };
 		C0D0F2EA238AAC9C00938421 /* UITextField-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */; };
 		C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */; };
 		C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4FA238A859A0092BA1D /* ViewController.swift */; };
@@ -60,17 +57,14 @@
 		C00E19E52424B99500710AFE /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-bin-64.png"; sourceTree = "<group>"; };
 		C05418F62395085900D295F6 /* BoundaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryViewController.swift; sourceTree = "<group>"; };
+		C061F9BD242A678A003FA76A /* GeoFenceStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoFenceStruct.swift; sourceTree = "<group>"; };
 		C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		C063D240238EB33000852FF4 /* AnnounceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceViewController.swift; sourceTree = "<group>"; };
 		C078303323CC7B2200878DD3 /* GPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		C0836DE2238A8DE40045A113 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		C0836DE4238A90920045A113 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-
-		C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AssistedHomeLogo.png; sourceTree = "<group>"; };
-
-		C08BE83323CB7A06009A5752 /* AssistedHomeTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AssistedHomeTwo.png; path = ../../../Downloads/AssistedHomeTwo.png; sourceTree = "<group>"; };
 		C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-bin-64.png"; sourceTree = "<group>"; };
-
+		C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AssistedHomeLogo.png; sourceTree = "<group>"; };
 		C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField-Extension.swift"; sourceTree = "<group>"; };
 		C0F2D4F5238A859A0092BA1D /* AssistedHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssistedHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +158,7 @@
 				C0F2D4FC238A859A0092BA1D /* Main.storyboard */,
 				C00E19E52424B99500710AFE /* AccountViewController.swift */,
 				C05418F62395085900D295F6 /* BoundaryViewController.swift */,
+				C061F9BD242A678A003FA76A /* GeoFenceStruct.swift */,
 				C0FFA24D2395640A00B48F43 /* CLPlacemark-extension.swift */,
 				C063D240238EB33000852FF4 /* AnnounceViewController.swift */,
 				C0836DE2238A8DE40045A113 /* UIView-Extension.swift */,
@@ -390,6 +385,7 @@
 				C063D241238EB33000852FF4 /* AnnounceViewController.swift in Sources */,
 				C0F2D51F238A87AF0092BA1D /* HomeViewController.swift in Sources */,
 				C0836DE5238A90920045A113 /* Constants.swift in Sources */,
+				C061F9BE242A678A003FA76A /* GeoFenceStruct.swift in Sources */,
 				C0D0F2EA238AAC9C00938421 /* UITextField-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

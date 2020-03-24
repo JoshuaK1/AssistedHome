@@ -126,7 +126,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         locationManager.startMonitoring(for: geoFenceRegion)
         
-        
         AccountView.roundCornerView(cornerRadius: 10)
         
         setUserRef()
