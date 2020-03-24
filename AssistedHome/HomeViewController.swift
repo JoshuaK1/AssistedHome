@@ -157,7 +157,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let content = UNMutableNotificationContent()
         
         content.title = eventTitle
-        content.body = "Region test"
+        content.body = "User has exceedeed the above safe boundary"
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
@@ -181,10 +181,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
-        print("Exited: \(region.identifier)")
-        
-        postLocalNotifications(eventTitle: region.identifier)
-    }
+//    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
+//        print("Exited: \(region.identifier)")
+//
+//        postLocalNotifications(eventTitle: region.identifier)
+//    }
 }
 
