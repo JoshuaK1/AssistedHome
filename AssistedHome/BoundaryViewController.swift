@@ -161,6 +161,8 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             let boundarySubtitle = value?["subTitle"] as? String ?? ""
             
+            self.removePendingNotifications(identifier: boundarySubtitle)
+            
             print("from removeBoundary method", boundarySubtitle)
             print("Boundary to remove", boundaryToRemove)
             
@@ -173,46 +175,16 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
-    // Add monitored region
-//    func postLocalNotifications(eventTitle: String){
-//        let notificationCenter = UNUserNotificationCenter.current()
-//
-//        let content = UNMutableNotificationContent()
-//
-//        content.title = eventTitle
-//        content.body  = "User has exceeded the boundary"
-//        content.sound = UNNotificationSound.default
-//
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-//
-//        let notificationRequest: UNNotificationRequest = UNNotificationRequest(identifier: eventTitle, content: content, trigger: trigger)
-//
-//        notificationCenter.add(notificationRequest,withCompletionHandler: {(error) in
-//            if let error = error {
-//                print (error)
-//            } else {
-//                print("Notification added")
-//            }
-//        })
-//    }
-
-//    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion){
-//        print("Entered: \(region.identifier)")
-//
-//        postLocalNotifications(eventTitle: region.identifier)
-//
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
-//        print("Exited: \(region.identifier)")
-//
-//        postLocalNotifications(eventTitle: region.identifier)
-//    }
+    // Function to remove any pending notifications
+    
+    func removePendingNotifications(identifier: String){
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
     
     // Add boundaries to map view
     func addBoundaries(key: String){
         
-        // Set firebase references
+        // Set firebase referencess
         let userID        = Auth.auth().currentUser?.uid
         let boundaryRef   = Database.database().reference(withPath: "boundaries")
         let uidRef        = boundaryRef.child(userID!)
