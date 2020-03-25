@@ -13,6 +13,22 @@ import CoreLocation
 import Contacts
 import FirebaseDatabase
 import FirebaseAuth
+import UserNotifications
+
+extension BoundaryViewController {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        var circleRenderer = MKCircleRenderer()
+        if let overlay = overlay as? MKCircle {
+            circleRenderer = MKCircleRenderer(circle: overlay)
+            circleRenderer.fillColor = UIColor.green
+            circleRenderer.strokeColor = .black
+            circleRenderer.alpha = 0.5
+            
+        }
+        return circleRenderer
+    }
+}
 
 class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
@@ -50,6 +66,27 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             boundary.child("longtitude") .setValue(boundaryLongtitude)
             boundary.child("subTitle")   .setValue(boundarySubtitle!)
             boundary.child("title")      .setValue(boundaryTitle!)
+            
+            // Change Longtitdue and latitude strings to doubles
+            let latitudeDouble  = NumberFormatter().number(from: boundaryLatitude)?.doubleValue
+            let longtitdeDouble = NumberFormatter().number(from: boundaryLongtitude)?.doubleValue
+            
+            // Start monitoring for locations
+            let locationManager: CLLocationManager = CLLocationManager()
+            
+            locationManager.delegate = self
+            
+            locationManager.startUpdatingLocation()
+            
+            locationManager.distanceFilter = 100
+            
+            let geoFencingRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(latitudeDouble!, longtitdeDouble!), radius: 100, identifier: boundarySubtitle!)
+            
+            locationManager.startMonitoring(for: geoFencingRegion)
+            
+            // Post identifier go GeoFences Struct
+            GeoFences.geoFences.append(geoFencingRegion)
+            
         }
         
     }
@@ -140,6 +177,8 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             let boundarySubtitle = value?["subTitle"] as? String ?? ""
             
+            self.removePendingNotifications(identifier: boundarySubtitle)
+            
             print("from removeBoundary method", boundarySubtitle)
             print("Boundary to remove", boundaryToRemove)
             
@@ -152,10 +191,31 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
+    // Function to remove any pending notifications
+    
+    func removePendingNotifications(identifier: String){
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        for fence in GeoFences.geoFences {
+            if fence.identifier == identifier {
+                let locationManager = CLLocationManager()
+                
+                locationManager.stopMonitoring(for: fence)
+                
+                GeoFences.geoFences.removeAll()
+                
+                print("No longer monitor for region")
+                
+                
+            }
+        }
+    
+    }
+    
     // Add boundaries to map view
     func addBoundaries(key: String){
         
-        // Set firebase references
+        // Set firebase referencess
         let userID        = Auth.auth().currentUser?.uid
         let boundaryRef   = Database.database().reference(withPath: "boundaries")
         let uidRef        = boundaryRef.child(userID!)
@@ -184,6 +244,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             var coordinate = CLLocationCoordinate2D()
             
+            
             coordinate.latitude  = latitudeDouble!
             coordinate.longitude = longtitdeDouble!
             
@@ -192,6 +253,8 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             annotation.subtitle   = boundarySubttile
             
             self.mapView.addAnnotation(annotation)
+            
+            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(latitudeDouble!, longtitdeDouble!), radius: 200))
         
         })
         
@@ -217,7 +280,6 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             }
         })
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -337,7 +399,17 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             // Pass through to post method
             self.postUserBoundaries(annotations: self.boundaries, userID: userID!)
+            
+            
+            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude), radius: 200))
         
     }
   }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // when app is onpen and in foregroud
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    
 }

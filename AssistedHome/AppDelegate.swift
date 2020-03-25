@@ -9,21 +9,39 @@
 import UIKit
 import Firebase
 import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     
+    // Location manager and notification center for geofencing
     var locationManager: CLLocationManager?
+    let notificationCenter = UNUserNotificationCenter.current()
+    
+    // Notification options
+    let options: UNAuthorizationOptions = [.alert, .sound];
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // when app is onpen and in foregroud
+        completionHandler([.alert, .badge, .sound])
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        notificationCenter.requestAuthorization(options: options) {
+            (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            }
+        }
+        
         //Registering location manager as delegate
         self.locationManager = CLLocationManager()
-        //self.locationManager!.delegate = self
+        self.locationManager!.delegate = self
         
         //Configure Firebase
         FirebaseApp.configure()
@@ -53,5 +71,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
-
