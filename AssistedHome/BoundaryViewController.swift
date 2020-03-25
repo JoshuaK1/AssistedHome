@@ -15,6 +15,21 @@ import FirebaseDatabase
 import FirebaseAuth
 import UserNotifications
 
+extension BoundaryViewController {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        var circleRenderer = MKCircleRenderer()
+        if let overlay = overlay as? MKCircle {
+            circleRenderer = MKCircleRenderer(circle: overlay)
+            circleRenderer.fillColor = UIColor.green
+            circleRenderer.strokeColor = .black
+            circleRenderer.alpha = 0.5
+            
+        }
+        return circleRenderer
+    }
+}
+
 class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
@@ -238,6 +253,8 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             annotation.subtitle   = boundarySubttile
             
             self.mapView.addAnnotation(annotation)
+            
+            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(latitudeDouble!, longtitdeDouble!), radius: 200))
         
         })
         
@@ -263,7 +280,6 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             }
         })
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -383,6 +399,9 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             // Pass through to post method
             self.postUserBoundaries(annotations: self.boundaries, userID: userID!)
+            
+            
+            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude), radius: 200))
         
     }
   }
