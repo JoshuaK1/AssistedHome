@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
         
         //Registering location manager as delegate
-        self.locationManager = CLLocationManager()
+        self.locationManager = CLLocationManager()  
         self.locationManager!.delegate = self
         
         //Configure Firebase

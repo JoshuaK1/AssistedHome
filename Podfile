@@ -16,8 +16,8 @@ target 'AssistedHome' do
   # Pods for AssistedHome
 
   target 'AssistedHomeTests' do
-    inherit! :search_paths
-    # Pods for testing
+#    inherit! :search_paths
+    pod 'JTAppleCalendar', '~>7.1'
   end
 
 end
