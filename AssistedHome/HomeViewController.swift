@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import CoreLocation
 import UserNotifications
+import EventKit
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -112,6 +113,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         
+         self.requestAccessToCelandar()
+        
         // Notitifications when enter and exit a geofence
         
         locationManager.delegate = self
@@ -189,5 +192,68 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
         postLocalNotifications(eventTitle: region.identifier, body: body)
     }
+    
+     // Functions for calendar
+    
+    var model = [EventData]()
+    
+    func fetchCalendarEvents(calendarTitle: String) -> Void {
+        let calendars = eventStore.calendars(for: .event)
+        
+        for calendar:EKCalendar in calendars {
+            
+            if calendar.title == calendarTitle {
+                
+                let selectedCalendar = calendar
+                let startDate = NSDate(timeIntervalSinceNow: -60*60*24*180)
+                let endDate = NSDate(timeIntervalSinceNow: 60*60*24*180)
+                let predicate = eventStore.predicateForEvents(withStart: startDate as Date, end: endDate as Date, calendars: [selectedCalendar])
+                let addedEvents = eventStore.events(matching: predicate) as [EKEvent]
+                
+                
+                print("addedEvents : \(addedEvents)")
+                
+                
+                for event in addedEvents {
+                    Events.locationStrings.append(event.location!)
+                    Events.eventTitles.append(event.title!)
+                    print("Location has been added", event.location!)
+                    
+                }
+            }
+        }
+    }
+    
+    // initialise event store
+    let eventStore = EKEventStore()
+    
+    // function to fetch events from calendar
+    func fetchCalendarEvents() -> Void{
+        let status = EKEventStore.authorizationStatus(for: .event)
+        
+        switch(status){
+        case .notDetermined:
+            requestAccessToCelandar()
+        case .authorized:
+            self.fetchCalendarEvents(calendarTitle: "AssistedHome")
+            break
+        case .restricted, .denied:
+            print("Access to calendar is not permitted")
+            // Alert to prompt user to grant access to calendar
+            break
+        }
+        
+    }
+    
+   
+    func requestAccessToCelandar(){
+        eventStore.requestAccess(to: EKEntityType.event) { (accessGranted, error) in
+            // call fetch events
+            self.fetchCalendarEvents()
+        }
+        
+    }
+    
+    
 }
 
