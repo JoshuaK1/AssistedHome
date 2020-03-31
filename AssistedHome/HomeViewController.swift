@@ -215,6 +215,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 
                 
                 for event in addedEvents {
+                    
+                    let latitude = event.structuredLocation?.geoLocation?.coordinate.latitude
+                    let longtitude = event.structuredLocation?.geoLocation?.coordinate.longitude
+                    
+                    print(latitude!)
+                    print(longtitude!)
+                    
                     Events.locationStrings.append(event.location!)
                     Events.eventTitles.append(event.title!)
                     print("Location has been added", event.location!)
