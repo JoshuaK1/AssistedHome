@@ -13,7 +13,8 @@ import EventKit
 struct Events {
     
     static var locationStrings = [String]()
-    
     static var eventTitles = [String]()
+    
+    static var eventIndex = 0
     
 }

@@ -43,6 +43,15 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected cell \(indexPath.row)")
+        
+        // Set struct value to index path
+        Events.eventIndex = indexPath.row
+        
+        self.performSegue(withIdentifier: "ReminderToDetailed", sender: self)
+    }
+    
     @IBOutlet weak var EventTableView: UITableView!
    
 }

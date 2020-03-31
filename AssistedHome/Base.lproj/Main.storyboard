@@ -396,11 +396,39 @@
                     </view>
                     <connections>
                         <outlet property="EventTableView" destination="f5J-r1-Sng" id="VY2-Zn-bgz"/>
+                        <segue destination="mBb-Wa-l3c" kind="show" identifier="ReminderToDetailed" id="bVa-VQ-qK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yvm-9G-Grr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5242.0289855072469" y="1041.9642857142858"/>
+            <point key="canvasLocation" x="5300" y="1042"/>
+        </scene>
+        <!--Detailed Reminder View-->
+        <scene sceneID="Jv1-yk-7vs">
+            <objects>
+                <viewController id="mBb-Wa-l3c" customClass="DetailedReminderView" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="70t-Rd-iAO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boO-dP-ex8">
+                                <rect key="frame" x="111" y="287" width="245" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="BMj-qL-20W"/>
+                    </view>
+                    <connections>
+                        <outlet property="IndexLabel" destination="boO-dP-ex8" id="HLP-cB-osY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZb-hk-GEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6247.826086956522" y="1041.9642857142858"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mo4-Dp-nW7">
