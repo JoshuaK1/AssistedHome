@@ -17,9 +17,6 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         
-        // call requestAccess to Calendar
-      //  self.requestAccessToCelandar()
-        
         // Set data source for table view
         EventTableView.dataSource = self
         EventTableView.delegate = self
@@ -27,32 +24,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
     
-//    func fetchCalendarEvents(calendarTitle: String) -> Void {
-//        let calendars = eventStore.calendars(for: .event)
-//
-//        for calendar:EKCalendar in calendars {
-//
-//            if calendar.title == calendarTitle {
-//
-//                let selectedCalendar = calendar
-//                let startDate = NSDate(timeIntervalSinceNow: -60*60*24*180)
-//                let endDate = NSDate(timeIntervalSinceNow: 60*60*24*180)
-//                let predicate = eventStore.predicateForEvents(withStart: startDate as Date, end: endDate as Date, calendars: [selectedCalendar])
-//                let addedEvents = eventStore.events(matching: predicate) as [EKEvent]
-//
-//
-//                print("addedEvents : \(addedEvents)")
-//
-//
-//                for event in addedEvents {
-//                    let eventData = EventData(location: event.location!)
-//                    model.append(eventData)
-//
-//                }
-//            }
-//        }
-//    }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -76,36 +48,5 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBOutlet weak var EventTableView: UITableView!
-    
-    
-    // initialise event store
-//    let eventStore = EKEventStore()
-//
-//    // function to fetch events from calendar
-//    func fetchCalendarEvents() -> Void{
-//        let status = EKEventStore.authorizationStatus(for: .event)
-//
-//        switch(status){
-//        case .notDetermined:
-//            requestAccessToCelandar()
-//        case .authorized:
-//            self.fetchCalendarEvents(calendarTitle: "AssistedHome")
-//            break
-//        case .restricted, .denied:
-//            print("Access to calendar is not permitted")
-//            // Alert to prompt user to grant access to calendar
-//            break
-//        }
-//
-//    }
-//
-
-//    func requestAccessToCelandar(){
-//        eventStore.requestAccess(to: EKEntityType.event) { (accessGranted, error) in
-//            // call fetch events
-//            self.fetchCalendarEvents()
-//        }
-//
-//    }
    
 }
