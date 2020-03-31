@@ -38,6 +38,10 @@
 	<string></string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string></string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>$(PRODUCT_NAME) uses Calendars</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
