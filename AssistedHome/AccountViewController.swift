@@ -21,7 +21,6 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         EventTableView.dataSource = self
         EventTableView.delegate = self
         EventTableView.reloadData()
-
     }
     
 
@@ -39,12 +38,9 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath);
         cell.textLabel?.text = eventIdentifiers[indexPath.row]
-        print(indexPath.row)
+        cell.detailTextLabel?.text = locations[indexPath.row]
+        print(locations[indexPath.row])
         return cell
-    }
-    
-    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return 50
     }
     
     @IBOutlet weak var EventTableView: UITableView!
