@@ -16,6 +16,10 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     // localise location strings
     var localLocations = Events.locationStrings
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
     // Localise event titles
     var eventTitles = Events.eventTitles
     
@@ -23,10 +27,6 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     
     // Localise coordinates
     var coorinates = Events.coorindates
-    
-    @IBOutlet weak var locationLabel: UILabel!
-    
-    @IBOutlet weak var IndexLabel: UILabel!
     
     func setMapLocation(){
         let noLocation = CLLocationCoordinate2D()
@@ -60,8 +60,10 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         
+        DetailedMapView.layer.cornerRadius = 10.0
+    
         addSwipes()
         
         let locationManager             = CLLocationManager()
@@ -72,6 +74,7 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
             if Events.eventIndex == n {
                 print("Location string at event index \(localLocations[n])")
                 locationLabel.text = localLocations[n]
+                
             }
         }
         
@@ -88,6 +91,8 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
                 
                 annotation.coordinate = coorinates[n]
                 annotation.title      = eventTitles[n]
+                
+                titleLabel.text = eventTitles[n]
                 
                 self.DetailedMapView.addAnnotation(annotation)
             }
