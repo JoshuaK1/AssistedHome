@@ -64,8 +64,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         menuShowing = !menuShowing
     }
     
-    
-    
     @IBAction func GPSButton(_ sender: Any) {
         performSegue(withIdentifier: "GPSButtonToGPSView", sender: self)
     }
@@ -82,7 +80,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if !snapshot.exists() {
                 return
-                
+    
             }
             let username = snapshot.childSnapshot(forPath: "UID").value
             print("UID taken from firebase" , username!)
@@ -91,21 +89,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func timeLabel(){
-        let dateFormatter = DateFormatter()
+        let dateFormatter       = DateFormatter()
         dateFormatter.timeStyle = .short
+        let timeString          = "\(dateFormatter.string(from: Date() as Date))"
         
-        let timeString = "\(dateFormatter.string(from: Date() as Date))"
-        
-        TimeLabel.text = String(timeString)
-        
+        TimeLabel.text          = String(timeString)
         
     }
     
     func dateLabel(){
-        let today = Date()
+        let today   = Date()
         let weekday = Calendar.current.component(.weekday, from: today)
-        let month = Calendar.current.component(.month, from: today)
-        let date = Calendar.current.component(.day, from: today)
+        let month   = Calendar.current.component(.month, from: today)
+        let date    = Calendar.current.component(.day, from: today)
         
         DateLabelOne.text = Calendar.current.weekdaySymbols[weekday-1]
         DateLabelTwo.text = "| \(Calendar.current.shortMonthSymbols[month-1]) \(date)"
@@ -114,23 +110,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager: CLLocationManager = CLLocationManager()
     
     // Functions for enterring and exiting regions
-    
     override func viewDidLoad() {
-        
         // Clearing structs to prevent duplicate table data
         Events.locationStrings.removeAll()
-        Events.eventTitles.removeAll()
+        Events.eventTitles    .removeAll()
         
          self.requestAccessToCelandar()
         
         // Notitifications when enter and exit a geofence
-        
         locationManager.delegate = self
-        
         locationManager.requestAlwaysAuthorization()
-        
         locationManager.startUpdatingLocation()
-        
         locationManager.distanceFilter = 100
         
         let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(54.687353, -5.882736), radius: 100, identifier: "TestLocation")
@@ -150,7 +140,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         AccountView.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
         
-        
         GPSButton           .setHomeButtonStyles()
         GPSHistoryButton    .setHomeButtonStyles()
         BoundaryButton      .setHomeButtonStyles()
@@ -158,12 +147,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         AlertsButton        .setHomeButtonStyles()
         RemindersButton     .setHomeButtonStyles()
         
-        
     }
     
     func postLocalNotifications(eventTitle:String, body: String){
         let notificationCenter = UNUserNotificationCenter.current()
-        
+
         let content = UNMutableNotificationContent()
         
         content.title = eventTitle
@@ -207,25 +195,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     func fetchCalendarEvents(calendarTitle: String) -> Void {
         let calendars = eventStore.calendars(for: .event)
-        
         for calendar:EKCalendar in calendars {
-            
             if calendar.title == calendarTitle {
-                
                 let selectedCalendar = calendar
-                let startDate = NSDate(timeIntervalSinceNow: -60*60*24*180)
-                let endDate = NSDate(timeIntervalSinceNow: 60*60*24*180)
-                let predicate = eventStore.predicateForEvents(withStart: startDate as Date, end: endDate as Date, calendars: [selectedCalendar])
-                let addedEvents = eventStore.events(matching: predicate) as [EKEvent]
-                
+                let startDate        = NSDate(timeIntervalSinceNow: -60*60*24*180)
+                let endDate          = NSDate(timeIntervalSinceNow: 60*60*24*180)
+                let predicate        = eventStore.predicateForEvents(withStart: startDate as Date, end: endDate as Date, calendars: [selectedCalendar])
+                let addedEvents      = eventStore.events(matching: predicate) as [EKEvent]
                 
                 print("addedEvents : \(addedEvents)")
                 
-                
                 for event in addedEvents {
-                    
                     // Get long and lat from calendar Event
-                    let latitude = event.structuredLocation?.geoLocation?.coordinate.latitude
+                    let latitude   = event.structuredLocation?.geoLocation?.coordinate.latitude
                     let longtitude = event.structuredLocation?.geoLocation?.coordinate.longitude
                     
                     // Build coordinate
@@ -264,18 +246,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             // Alert to prompt user to grant access to calendar
             break
         }
-        
     }
     
-   
     func requestAccessToCelandar(){
         eventStore.requestAccess(to: EKEntityType.event) { (accessGranted, error) in
             // call fetch events
             self.fetchCalendarEvents()
         }
-        
     }
-    
-    
 }
 
