@@ -16,9 +16,6 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     // localise location strings
     var localLocations = Events.locationStrings
     
-    @IBOutlet weak var notifyNoButton: RadioButtons!
-    
-    @IBOutlet weak var notifyYesButton: RadioButtons!
     var mapLocation = CLLocationCoordinate2D()
     var mapLocationName = ""
     
@@ -84,12 +81,6 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidLoad(){
-        
-        notifyNoButton.isSelected = true
-        notifyYesButton.isSelected = false
-        
-        notifyNoButton?.alternateButton = [notifyYesButton!]
-        notifyYesButton?.alternateButton = [notifyNoButton!]
         
         DetailedMapView.layer.cornerRadius = 10.0
     
