@@ -476,6 +476,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
                                         <color key="value" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                        <color key="value" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
