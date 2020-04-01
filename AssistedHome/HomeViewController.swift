@@ -114,6 +114,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         // Clearing structs to prevent duplicate table data
         Events.locationStrings.removeAll()
         Events.eventTitles    .removeAll()
+        Events.eventTime      .removeAll()
         
          self.requestAccessToCelandar()
         
@@ -209,6 +210,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     // Get long and lat from calendar Event
                     let latitude   = event.structuredLocation?.geoLocation?.coordinate.latitude
                     let longtitude = event.structuredLocation?.geoLocation?.coordinate.longitude
+                    
+                    
+                    // Get event time
+                    let time = event.startDate
+                    Events.eventTime.append(time!)
                     
                     // Build coordinate
                     let coordinate = CLLocationCoordinate2DMake(latitude!, longtitude!)

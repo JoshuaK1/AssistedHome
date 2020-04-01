@@ -60,6 +60,15 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    // Format date strings
+    func formatDateStrings(date: Date) -> String {
+        let formatter        = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let formattedString  = formatter.string(from: date)
+        
+        return formattedString
+    }
+    
     override func viewDidLoad(){
         
         DetailedMapView.layer.cornerRadius = 10.0
@@ -74,6 +83,7 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
             if Events.eventIndex == n {
                 print("Location string at event index \(localLocations[n])")
                 locationLabel.text = localLocations[n]
+                timeLabel.text     = formatDateStrings(date: Events.eventTime[n])
                 
             }
         }
