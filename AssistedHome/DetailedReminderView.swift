@@ -16,9 +16,23 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     // localise location strings
     var localLocations = Events.locationStrings
     
+    @IBOutlet weak var notifyNoButton: RadioButtons!
+    
+    @IBOutlet weak var notifyYesButton: RadioButtons!
+    var mapLocation = CLLocationCoordinate2D()
+    var mapLocationName = ""
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBAction func needDirectionsButton(_ sender: Any) {
+        
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: mapLocation, addressDictionary:nil))
+        mapItem.name = mapLocationName
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+        
+    }
     
     // Localise event titles
     var eventTitles = Events.eventTitles
@@ -71,6 +85,12 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad(){
         
+        notifyNoButton.isSelected = true
+        notifyYesButton.isSelected = false
+        
+        notifyNoButton?.alternateButton = [notifyYesButton!]
+        notifyYesButton?.alternateButton = [notifyNoButton!]
+        
         DetailedMapView.layer.cornerRadius = 10.0
     
         addSwipes()
@@ -101,6 +121,9 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
                 
                 annotation.coordinate = coorinates[n]
                 annotation.title      = eventTitles[n]
+                
+                mapLocation = coorinates[n]
+                mapLocationName = eventTitles[n]
                 
                 titleLabel.text = "- \(eventTitles[n])'s details -"
                 

@@ -434,19 +434,51 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMj-UQ-4wT">
-                                <rect key="frame" x="52" y="140" width="317" height="21"/>
+                                <rect key="frame" x="20" y="131" width="317" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oY-7h-pEh">
-                                <rect key="frame" x="52" y="238" width="192" height="34"/>
+                                <rect key="frame" x="20" y="160" width="192" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKP-om-TOl">
+                                <rect key="frame" x="156" y="334" width="102" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <state key="normal" title="Need directions?">
+                                    <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="needDirectionsButton:" destination="mBb-Wa-l3c" eventType="touchUpInside" id="txq-nJ-2g3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nd2-eM-BZv" customClass="RadioButtons" customModule="AssistedHome" customModuleProvider="target">
+                                <rect key="frame" x="219" y="258" width="72" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Off">
+                                    <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arrival Notificaitons:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebd-hT-LnY">
+                                <rect key="frame" x="20" y="217" width="128" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mk-iu-JUc" customClass="RadioButtons" customModule="AssistedHome" customModuleProvider="target">
+                                <rect key="frame" x="128" y="258" width="70" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="On">
+                                    <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="BMj-qL-20W"/>
@@ -454,6 +486,8 @@
                     <connections>
                         <outlet property="DetailedMapView" destination="cLP-KN-WxV" id="9ox-8p-MHx"/>
                         <outlet property="locationLabel" destination="1oY-7h-pEh" id="osY-jd-SxT"/>
+                        <outlet property="notifyNoButton" destination="7Mk-iu-JUc" id="Kcl-47-udE"/>
+                        <outlet property="notifyYesButton" destination="nd2-eM-BZv" id="Ago-mx-rhz"/>
                         <outlet property="timeLabel" destination="sMj-UQ-4wT" id="cuF-f2-2lT"/>
                         <outlet property="titleLabel" destination="ymY-HZ-If6" id="v4k-A1-fpC"/>
                         <segue destination="7ca-X5-lEd" kind="show" identifier="DetailedToListView" id="J63-Nx-Et2"/>
