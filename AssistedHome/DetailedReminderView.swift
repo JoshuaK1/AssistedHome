@@ -13,13 +13,11 @@ import CoreLocation
 
 class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     
-    var latitude = 0.0
-    var longtitude = 0.0
-    
     // localise location strings
     var localLocations = Events.locationStrings
     
     @IBOutlet weak var DetailedMapView: MKMapView!
+    
     // Localise coordinates
     var coorinates = Events.coorindates
     
@@ -37,15 +35,13 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         }
     
     func setViewRegion(viewRegion: MKCoordinateRegion){
-        
         DetailedMapView.setRegion(viewRegion, animated: false)
 
     }
     
     override func viewDidLoad() {
-        
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
+        let locationManager             = CLLocationManager()
+        locationManager.delegate        = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         for n in 0...localLocations.count{
@@ -57,7 +53,6 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         
         for n in 0...coorinates.count{
             if Events.eventIndex == n {
-                
                 let viewRegion  = MKCoordinateRegion.init(center: coorinates[n],
                                                           latitudinalMeters: 200,
                                                           longitudinalMeters: 200)
@@ -65,28 +60,22 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
                 setViewRegion(viewRegion: viewRegion)
                 
             }
-            
+
             // Update map on the main queue
             DispatchQueue.main.async {
                 locationManager.startUpdatingLocation()
             }
             
-            DetailedMapView.mapType = .standard
+            DetailedMapView.mapType           = .standard
             DetailedMapView.showsUserLocation = true
-            DetailedMapView.showsScale = true
+            DetailedMapView.showsScale        = true
         
         }
         
         // Check values in array have been passed through
-        
         for location in localLocations {
             print("Location is \(location)")
         }
         IndexLabel.text = "Value passed through is \(Events.eventIndex) "
-        
-        // Once event index is obtained, loop through and gather remaining items
-        
-        
-        
     }
 }
