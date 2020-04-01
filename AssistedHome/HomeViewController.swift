@@ -216,8 +216,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 
                 for event in addedEvents {
                     
+                    // Get long and lat from calendar Event
                     let latitude = event.structuredLocation?.geoLocation?.coordinate.latitude
                     let longtitude = event.structuredLocation?.geoLocation?.coordinate.longitude
+                    
+                    // Build coordinate
+                    let coordinate = CLLocationCoordinate2DMake(latitude!, longtitude!)
+                    
+                    // Add to coordiante array struct
+                    Events.coorindates.append(coordinate)
                     
                     print(latitude!)
                     print(longtitude!)

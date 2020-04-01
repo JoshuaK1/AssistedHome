@@ -17,4 +17,10 @@ struct Events {
     
     static var eventIndex = 0
     
+    static var longtitude = CLLocationDegrees()
+    static var latitude =  CLLocationDegrees()
+    
+    // Array of location objects
+    static var coorindates = [CLLocationCoordinate2D]()
+    
 }

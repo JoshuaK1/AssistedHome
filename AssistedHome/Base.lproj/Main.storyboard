@@ -422,12 +422,21 @@
                                 <rect key="frame" x="20" y="372" width="374" height="421"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbv-EV-cvE">
+                                <rect key="frame" x="51" y="115" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="BMj-qL-20W"/>
                     </view>
                     <connections>
+                        <outlet property="DetailedMapView" destination="cLP-KN-WxV" id="9ox-8p-MHx"/>
                         <outlet property="IndexLabel" destination="boO-dP-ex8" id="HLP-cB-osY"/>
+                        <outlet property="locationLabel" destination="Cbv-EV-cvE" id="FCH-XJ-ngR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZb-hk-GEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
