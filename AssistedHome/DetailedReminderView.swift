@@ -30,7 +30,7 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         let viewRegion = MKCoordinateRegion.init(center: noLocation,
                                                  latitudinalMeters: 200,
                                                  longitudinalMeters: 200)
-        
+
         DetailedMapView.setRegion(viewRegion, animated: true)
         }
     
@@ -58,6 +58,14 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
                                                           longitudinalMeters: 200)
                 
                 setViewRegion(viewRegion: viewRegion)
+                
+                // Add annotation to map view
+                let annotation = MKPointAnnotation()
+                
+                annotation.coordinate = coorinates[n]
+                annotation.title      = localLocations[n]
+                
+                self.DetailedMapView.addAnnotation(annotation)
                 
             }
 
