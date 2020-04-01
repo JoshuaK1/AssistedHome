@@ -242,6 +242,9 @@
                                 <state key="normal" title="Reminders">
                                     <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="ReminderViewButton:" destination="uUl-NE-mm7" eventType="touchUpInside" id="SFr-vG-JFZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hQ-7I-m7r">
                                 <rect key="frame" x="218" y="365" width="159" height="113"/>
@@ -390,6 +393,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REMINDERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieh-ZS-SVC">
+                                <rect key="frame" x="121" y="54" width="173" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <color key="textColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Mys-P8-GKk"/>
@@ -397,11 +407,12 @@
                     <connections>
                         <outlet property="EventTableView" destination="f5J-r1-Sng" id="VY2-Zn-bgz"/>
                         <segue destination="mBb-Wa-l3c" kind="show" identifier="ReminderToDetailed" id="bVa-VQ-qK4"/>
+                        <segue destination="uUl-NE-mm7" kind="show" identifier="RemindersToHome" id="3BO-bs-6Qk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yvm-9G-Grr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5300" y="1042"/>
+            <point key="canvasLocation" x="5298.5507246376819" y="1041.9642857142858"/>
         </scene>
         <!--Detailed Reminder View-->
         <scene sceneID="Jv1-yk-7vs">
@@ -656,8 +667,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
-        <segue reference="J63-Nx-Et2"/>
-        <segue reference="A30-40-v2Z"/>
+        <segue reference="Qv6-wk-9xc"/>
+        <segue reference="3BO-bs-6Qk"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>

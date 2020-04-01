@@ -12,17 +12,37 @@ import EventKit
 
 class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var locations = Events.locationStrings
     var eventIdentifiers = Events.eventTitles
+    var locations = Events.locationStrings
+
+
+    // Add support for swipe gestures
+    func addSwipes(){
+        let directions:[UISwipeGestureRecognizer.Direction] = [.right, .left, .up, .down]
+        for direction in directions {
+            let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
+            gesture.direction = direction
+            view.addGestureRecognizer(gesture)
+        }
+        
+    }
+    
+    // Handle Swipe Gestures
+    @objc func handleSwipes(sender: UISwipeGestureRecognizer){
+        if sender.direction == .right{
+            performSegue(withIdentifier: "RemindersToHome", sender: self)
+        }
+    }
     
     override func viewDidLoad() {
+        
+        addSwipes()
         
         // Set data source for table view
         EventTableView.dataSource = self
         EventTableView.delegate = self
         EventTableView.reloadData()
     }
-    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

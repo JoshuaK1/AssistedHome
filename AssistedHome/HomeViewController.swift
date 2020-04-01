@@ -35,6 +35,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var AccountViewButton: UIButton!
     
     
+    @IBAction func ReminderViewButton(_ sender: Any) {
+        performSegue(withIdentifier: "HomeToAccount", sender: self)
+    }
+    
     @IBAction func AccountViewButton(_ sender: Any) {
         performSegue(withIdentifier: "HomeToAccount", sender: self)
         
@@ -112,6 +116,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     // Functions for enterring and exiting regions
     
     override func viewDidLoad() {
+        
+        // Clearing structs to prevent duplicate table data
+        Events.locationStrings.removeAll()
+        Events.eventTitles.removeAll()
         
          self.requestAccessToCelandar()
         
