@@ -437,6 +437,7 @@
                         <outlet property="DetailedMapView" destination="cLP-KN-WxV" id="9ox-8p-MHx"/>
                         <outlet property="IndexLabel" destination="boO-dP-ex8" id="HLP-cB-osY"/>
                         <outlet property="locationLabel" destination="Cbv-EV-cvE" id="FCH-XJ-ngR"/>
+                        <segue destination="7ca-X5-lEd" kind="show" identifier="DetailedToListView" id="J63-Nx-Et2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZb-hk-GEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -655,6 +656,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
+        <segue reference="J63-Nx-Et2"/>
         <segue reference="A30-40-v2Z"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>

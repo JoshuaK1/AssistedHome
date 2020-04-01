@@ -16,6 +16,9 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     // localise location strings
     var localLocations = Events.locationStrings
     
+    // Localise event titles
+    var eventTitles = Events.eventTitles
+    
     @IBOutlet weak var DetailedMapView: MKMapView!
     
     // Localise coordinates
@@ -39,7 +42,28 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
 
     }
     
+    // Add support for swipe gestures
+    func addSwipes(){
+        let directions:[UISwipeGestureRecognizer.Direction] = [.right, .left, .up, .down]
+        for direction in directions {
+            let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
+            gesture.direction = direction
+            view.addGestureRecognizer(gesture)
+        }
+        
+    }
+    
+    // Handle Swipe Gestures
+    @objc func handleSwipes(sender: UISwipeGestureRecognizer){
+        if sender.direction == .right{
+            performSegue(withIdentifier: "DetailedToListView", sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
+        
+        addSwipes()
+        
         let locationManager             = CLLocationManager()
         locationManager.delegate        = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -63,10 +87,9 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
                 let annotation = MKPointAnnotation()
                 
                 annotation.coordinate = coorinates[n]
-                annotation.title      = localLocations[n]
+                annotation.title      = eventTitles[n]
                 
                 self.DetailedMapView.addAnnotation(annotation)
-                
             }
 
             // Update map on the main queue
@@ -84,6 +107,5 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         for location in localLocations {
             print("Location is \(location)")
         }
-        IndexLabel.text = "Value passed through is \(Events.eventIndex) "
     }
 }
