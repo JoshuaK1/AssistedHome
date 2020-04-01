@@ -1,4 +1,5 @@
 PODS:
+  - BEMCheckBox (1.4.1)
   - Firebase/Analytics (5.17.0):
     - Firebase/Core
   - Firebase/Auth (5.17.0):
@@ -70,13 +71,14 @@ PODS:
   - nanopb/encode (0.3.901)
 
 DEPENDENCIES:
+  - BEMCheckBox
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -89,8 +91,11 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+  trunk:
+    - BEMCheckBox
 
 SPEC CHECKSUMS:
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Firebase: 59d557e064217fab6a03ff00baa73c06e73832e6
   FirebaseAnalytics: 75e4bbc6417d190cc98ec1f17c41a4fad4c2c976
   FirebaseAuth: 0f61e1329237da5682c49c9abd135e8f9d07a151
@@ -104,6 +109,6 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: cacda82287426b6ffb723100bb60cb0fddc663ee
+PODFILE CHECKSUM: c7b1cd86c85e135b5abac2430782f590cb571321
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1

@@ -18,6 +18,9 @@
 		C0836DE5238A90920045A113 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0836DE4238A90920045A113 /* Constants.swift */; };
 		C08BE83023CB6C60009A5752 /* icons8-delete-bin-64.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */; };
 		C08BE83223CB7574009A5752 /* AssistedHomeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */; };
+		C0AAEE8F24334E57003D0337 /* EventDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAEE8E24334E57003D0337 /* EventDataModel.swift */; };
+		C0AAEE9124335FF3003D0337 /* EventDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAEE9024335FF3003D0337 /* EventDataStruct.swift */; };
+		C0AAEE93243388B3003D0337 /* DetailedReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAEE92243388B3003D0337 /* DetailedReminderView.swift */; };
 		C0D0F2EA238AAC9C00938421 /* UITextField-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */; };
 		C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */; };
 		C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2D4FA238A859A0092BA1D /* ViewController.swift */; };
@@ -65,6 +68,9 @@
 		C0836DE4238A90920045A113 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-bin-64.png"; sourceTree = "<group>"; };
 		C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AssistedHomeLogo.png; sourceTree = "<group>"; };
+		C0AAEE8E24334E57003D0337 /* EventDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataModel.swift; sourceTree = "<group>"; };
+		C0AAEE9024335FF3003D0337 /* EventDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataStruct.swift; sourceTree = "<group>"; };
+		C0AAEE92243388B3003D0337 /* DetailedReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedReminderView.swift; sourceTree = "<group>"; };
 		C0D0F2E9238AAC9C00938421 /* UITextField-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField-Extension.swift"; sourceTree = "<group>"; };
 		C0F2D4F5238A859A0092BA1D /* AssistedHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssistedHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,9 +162,12 @@
 				C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */,
 				C0F2D4FA238A859A0092BA1D /* ViewController.swift */,
 				C0F2D4FC238A859A0092BA1D /* Main.storyboard */,
+				C0AAEE92243388B3003D0337 /* DetailedReminderView.swift */,
 				C00E19E52424B99500710AFE /* AccountViewController.swift */,
+				C0AAEE8E24334E57003D0337 /* EventDataModel.swift */,
 				C05418F62395085900D295F6 /* BoundaryViewController.swift */,
 				C061F9BD242A678A003FA76A /* GeoFenceStruct.swift */,
+				C0AAEE9024335FF3003D0337 /* EventDataStruct.swift */,
 				C0FFA24D2395640A00B48F43 /* CLPlacemark-extension.swift */,
 				C063D240238EB33000852FF4 /* AnnounceViewController.swift */,
 				C0836DE2238A8DE40045A113 /* UIView-Extension.swift */,
@@ -341,22 +350,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AssistedHome/Pods-AssistedHome-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AssistedHome/Pods-AssistedHome-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AssistedHome/Pods-AssistedHome-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -370,10 +368,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0AAEE8F24334E57003D0337 /* EventDataModel.swift in Sources */,
 				C0F2D51B238A87930092BA1D /* LoginViewController.swift in Sources */,
+				C0AAEE93243388B3003D0337 /* DetailedReminderView.swift in Sources */,
 				C078303423CC7B2200878DD3 /* GPSViewController.swift in Sources */,
 				C00E19E62424B99500710AFE /* AccountViewController.swift in Sources */,
 				C0FFA24E2395640A00B48F43 /* CLPlacemark-extension.swift in Sources */,
+				C0AAEE9124335FF3003D0337 /* EventDataStruct.swift in Sources */,
 				C0F2D4FB238A859A0092BA1D /* ViewController.swift in Sources */,
 				C0F2D4F9238A859A0092BA1D /* AppDelegate.swift in Sources */,
 				C063D23F238EA77C00852FF4 /* UIButton-Extension.swift in Sources */,
