@@ -60,10 +60,10 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // Format date strings
+    
     func formatDateStrings(date: Date) -> String {
         let formatter        = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.dateFormat = "EEEE MMM d, yyyy @ HH:mm"
         let formattedString  = formatter.string(from: date)
         
         return formattedString
@@ -102,7 +102,7 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
                 annotation.coordinate = coorinates[n]
                 annotation.title      = eventTitles[n]
                 
-                titleLabel.text = eventTitles[n]
+                titleLabel.text = "- \(eventTitles[n])'s details -"
                 
                 self.DetailedMapView.addAnnotation(annotation)
             }
