@@ -19,6 +19,8 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     var mapLocation = CLLocationCoordinate2D()
     var mapLocationName = ""
     
+    @IBOutlet weak var addBoundaryButton: UIButton!
+    @IBOutlet weak var makeSafeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -81,6 +83,28 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidLoad(){
+        
+        makeSafeButton.layer.cornerRadius = 15.0
+        makeSafeButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        
+        // Add shadow to makeSafeButton - Move to function
+        
+        makeSafeButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        makeSafeButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        makeSafeButton.layer.shadowOpacity = 1.0
+        makeSafeButton.layer.shadowRadius = 0.0
+        makeSafeButton.layer.masksToBounds = false
+        
+        addBoundaryButton.layer.cornerRadius = 15.0
+        addBoundaryButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        
+        // Add shadow to makeSafeButton - Move to function
+        
+        addBoundaryButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        addBoundaryButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        addBoundaryButton.layer.shadowOpacity = 1.0
+        addBoundaryButton.layer.shadowRadius = 0.0
+        addBoundaryButton.layer.masksToBounds = false
         
         DetailedMapView.layer.cornerRadius = 10.0
     

@@ -481,13 +481,33 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTj-nx-pXY">
+                                <rect key="frame" x="215" y="280" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Enable Notifications">
+                                    <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMz-bM-KnK">
+                                <rect key="frame" x="31" y="280" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Add a boundary">
+                                    <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="BMj-qL-20W"/>
                     </view>
                     <connections>
                         <outlet property="DetailedMapView" destination="cLP-KN-WxV" id="9ox-8p-MHx"/>
+                        <outlet property="addBoundaryButton" destination="FTj-nx-pXY" id="EzT-Dr-gTZ"/>
                         <outlet property="locationLabel" destination="1oY-7h-pEh" id="osY-jd-SxT"/>
+                        <outlet property="makeSafeButton" destination="iMz-bM-KnK" id="gNC-0U-LbR"/>
                         <outlet property="timeLabel" destination="sMj-UQ-4wT" id="cuF-f2-2lT"/>
                         <outlet property="titleLabel" destination="ymY-HZ-If6" id="v4k-A1-fpC"/>
                         <segue destination="7ca-X5-lEd" kind="show" identifier="DetailedToListView" id="J63-Nx-Et2"/>
