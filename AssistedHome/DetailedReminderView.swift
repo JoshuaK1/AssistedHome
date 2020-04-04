@@ -26,7 +26,6 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBAction func needDirectionsButton(_ sender: Any) {
-        
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: mapLocation, addressDictionary:nil))
         mapItem.name = mapLocationName
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
@@ -34,6 +33,7 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
     }
     @IBAction func makeSafeButton(_ sender: Any) {
         performSegue(withIdentifier: "markedAsSafe", sender: self)
+        self.handleAddNotifications()
     }
     
     // Localise event titles
@@ -85,8 +85,7 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         return formattedString
     }
     
-    override func viewDidLoad(){
-        
+    func addButtonStyling(){
         makeSafeButton.layer.cornerRadius = 15.0
         makeSafeButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         
@@ -108,7 +107,37 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         addBoundaryButton.layer.shadowOpacity = 1.0
         addBoundaryButton.layer.shadowRadius = 0.0
         addBoundaryButton.layer.masksToBounds = false
+    }
+    
+    func handleMakeSafe(){
         
+        //let locationManger = CLLocationManager()
+        
+        
+    }
+    
+    func handleAddNotifications(){
+        let locationToMonitorCoord = Events.coorindates
+        for n in 0...locationToMonitorCoord.count {
+            if Events.eventIndex == n {
+                
+                let locationManager = CLLocationManager()
+                locationManager.delegate = self
+                
+                let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(Events.coorindates[n].latitude, Events.coorindates[n].longitude), radius: 30, identifier: self.titleLabel.text!)
+                
+                locationManager.startMonitoring(for: geoFenceRegion)
+                
+                print(geoFenceRegion)
+            }
+        }
+        
+    }
+
+    override func viewDidLoad(){
+        
+        addButtonStyling()
+    
         DetailedMapView.layer.cornerRadius = 10.0
     
         addSwipes()
@@ -122,7 +151,6 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
                 print("Location string at event index \(localLocations[n])")
                 locationLabel.text = localLocations[n]
                 timeLabel.text     = formatDateStrings(date: Events.eventTime[n])
-                
             }
         }
         
