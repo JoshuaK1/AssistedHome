@@ -32,6 +32,9 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
         
     }
+    @IBAction func makeSafeButton(_ sender: Any) {
+        performSegue(withIdentifier: "markedAsSafe", sender: self)
+    }
     
     // Localise event titles
     var eventTitles = Events.eventTitles
