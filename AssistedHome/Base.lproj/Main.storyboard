@@ -478,6 +478,9 @@
                                 <state key="normal" title="Add a boundary">
                                     <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="addBoundaryButton:" destination="mBb-Wa-l3c" eventType="touchUpInside" id="q7E-al-Zbd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
