@@ -32,7 +32,12 @@ extension BoundaryViewController {
 
 class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
+    @IBOutlet weak var homeNavButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
+    @IBAction func homeNavButton(_ sender: Any) {
+        performSegue(withIdentifier: "MapViewToHome", sender: self)
+        
+    }
     
     var boundaries: [MKPointAnnotation] = []
     
@@ -192,7 +197,6 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     // Function to remove any pending notifications
-    
     func removePendingNotifications(identifier: String){
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
         
@@ -254,7 +258,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             self.mapView.addAnnotation(annotation)
             
-            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(latitudeDouble!, longtitdeDouble!), radius: 200))
+            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(latitudeDouble!, longtitdeDouble!), radius: 30))
         
         })
         
@@ -282,6 +286,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         mapView.delegate = self
         

@@ -197,7 +197,7 @@
                                 <rect key="frame" x="32" y="365" width="161" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="GPS">
+                                <state key="normal" title="Live Location">
                                     <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -266,14 +266,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weekday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08E-yc-Smo">
-                                <rect key="frame" x="127.66666666666669" y="241" width="95.333333333333314" height="29"/>
+                                <rect key="frame" x="120" y="241" width="95.333333333333314" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
                                 <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSh-eg-jYf">
-                                <rect key="frame" x="210" y="241" width="103" height="29"/>
+                                <rect key="frame" x="210" y="242" width="103" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
                                 <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -289,8 +289,8 @@
                                     <action selector="AccountShow:" destination="uUl-NE-mm7" eventType="touchUpInside" id="P0M-2u-1h3"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvE-LU-guz">
-                                <rect key="frame" x="0.0" y="44" width="210" height="818"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZvE-LU-guz">
+                                <rect key="frame" x="0.0" y="39" width="210" height="818"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgh-oB-4oZ">
                                         <rect key="frame" x="81" y="198" width="48" height="30"/>
@@ -458,28 +458,88 @@
                                     <action selector="needDirectionsButton:" destination="mBb-Wa-l3c" eventType="touchUpInside" id="txq-nJ-2g3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arrival Notificaitons:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebd-hT-LnY">
-                                <rect key="frame" x="20" y="217" width="128" height="17"/>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTj-nx-pXY">
+                                <rect key="frame" x="215" y="280" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                <color key="textColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Enable Notifications">
+                                    <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="makeSafeButton:" destination="mBb-Wa-l3c" eventType="touchUpInside" id="624-qY-CMZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMz-bM-KnK">
+                                <rect key="frame" x="31" y="280" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Add a boundary">
+                                    <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBoundaryButton:" destination="mBb-Wa-l3c" eventType="touchUpInside" id="q7E-al-Zbd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="BMj-qL-20W"/>
                     </view>
                     <connections>
                         <outlet property="DetailedMapView" destination="cLP-KN-WxV" id="9ox-8p-MHx"/>
+                        <outlet property="addBoundaryButton" destination="FTj-nx-pXY" id="EzT-Dr-gTZ"/>
                         <outlet property="locationLabel" destination="1oY-7h-pEh" id="osY-jd-SxT"/>
+                        <outlet property="makeSafeButton" destination="iMz-bM-KnK" id="gNC-0U-LbR"/>
                         <outlet property="timeLabel" destination="sMj-UQ-4wT" id="cuF-f2-2lT"/>
                         <outlet property="titleLabel" destination="ymY-HZ-If6" id="v4k-A1-fpC"/>
                         <segue destination="7ca-X5-lEd" kind="show" identifier="DetailedToListView" id="J63-Nx-Et2"/>
+                        <segue destination="9bz-pF-MAx" kind="presentation" identifier="markedAsSafe" id="u0g-5T-am4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZb-hk-GEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6247.826086956522" y="1041.9642857142858"/>
+        </scene>
+        <!--Popup View Controller-->
+        <scene sceneID="yhv-P3-ad7">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="9bz-pF-MAx" customClass="PopupViewController" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xqi-qU-byT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-TL-yna">
+                                <rect key="frame" x="107" y="210" width="201" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0GN-Q5-SN2" customClass="BEMCheckBox">
+                                        <rect key="frame" x="64" y="23" width="72" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.4979093671" green="0.74122142790000001" blue="0.84695309399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cf4-Pv-D7f"/>
+                    </view>
+                    <connections>
+                        <outlet property="checkbox" destination="0GN-Q5-SN2" id="lXM-YE-0c4"/>
+                        <outlet property="popupView" destination="0Db-TL-yna" id="xxM-hJ-0AL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="spa-Zm-6Eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7240.579710144928" y="1041.9642857142858"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mo4-Dp-nW7">
@@ -600,7 +660,7 @@
             </objects>
             <point key="canvasLocation" x="3261" y="-197"/>
         </scene>
-        <!--Boundary View Controller-->
+        <!--Title-->
         <scene sceneID="vyJ-yy-SAA">
             <objects>
                 <viewController id="N2d-6p-BWN" customClass="BoundaryViewController" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
@@ -609,21 +669,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FC1-7m-1Dj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="682"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <navigationBar opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bsU-Pt-4Gj">
+                                <rect key="frame" x="0.0" y="30" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem id="IJS-cG-c31">
+                                        <barButtonItem key="backBarButtonItem" title="Back" id="WF8-V4-Bg2"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="ojF-8x-NYJ">
+                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="homeNavButton:" destination="N2d-6p-BWN" id="CAu-qS-3OU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="aGh-zO-wHQ"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="U8t-DO-gIp"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="homeNavButton" destination="ojF-8x-NYJ" id="1Ph-9X-pao"/>
                         <outlet property="mapView" destination="FC1-7m-1Dj" id="Eam-2V-AMX"/>
                         <segue destination="uUl-NE-mm7" kind="show" identifier="MapViewToHome" id="rGd-xB-PxM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exc-Rc-l5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4148" y="183"/>
+            <point key="canvasLocation" x="4147.826086956522" y="182.8125"/>
         </scene>
         <!--Announce View Controller-->
         <scene sceneID="Vom-7Z-bbV">
@@ -692,9 +772,10 @@
         <image name="AssistedHomeLogo.png" width="400" height="258"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="FxC-zg-rSJ"/>
         <segue reference="eoL-tB-EFj"/>
-        <segue reference="J63-Nx-Et2"/>
-        <segue reference="3BO-bs-6Qk"/>
+        <segue reference="Qv6-wk-9xc"/>
+        <segue reference="rGd-xB-PxM"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>

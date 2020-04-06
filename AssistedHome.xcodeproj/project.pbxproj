@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C00E19E62424B99500710AFE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E19E52424B99500710AFE /* AccountViewController.swift */; };
 		C03EA9E323CC65CC00BE610C /* icons8-delete-bin-64.png in Resources */ = {isa = PBXBuildFile; fileRef = C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */; };
+		C04540FE2438C32000030A88 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04540FD2438C32000030A88 /* PopupViewController.swift */; };
 		C05418F72395085900D295F6 /* BoundaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05418F62395085900D295F6 /* BoundaryViewController.swift */; };
 		C061F9BE242A678A003FA76A /* GeoFenceStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061F9BD242A678A003FA76A /* GeoFenceStruct.swift */; };
 		C063D23F238EA77C00852FF4 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */; };
@@ -59,6 +60,7 @@
 		BC5E647BC12E996210E1BC1B /* Pods-AssistedHomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHomeTests.debug.xcconfig"; path = "Target Support Files/Pods-AssistedHomeTests/Pods-AssistedHomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C00E19E52424B99500710AFE /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-bin-64.png"; sourceTree = "<group>"; };
+		C04540FD2438C32000030A88 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		C05418F62395085900D295F6 /* BoundaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryViewController.swift; sourceTree = "<group>"; };
 		C061F9BD242A678A003FA76A /* GeoFenceStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoFenceStruct.swift; sourceTree = "<group>"; };
 		C063D23E238EA77C00852FF4 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */,
 				C0F2D4FA238A859A0092BA1D /* ViewController.swift */,
 				C0F2D4FC238A859A0092BA1D /* Main.storyboard */,
+				C04540FD2438C32000030A88 /* PopupViewController.swift */,
 				C0AAEE92243388B3003D0337 /* DetailedReminderView.swift */,
 				C00E19E52424B99500710AFE /* AccountViewController.swift */,
 				C0AAEE8E24334E57003D0337 /* EventDataModel.swift */,
@@ -388,6 +391,7 @@
 				C0836DE5238A90920045A113 /* Constants.swift in Sources */,
 				C061F9BE242A678A003FA76A /* GeoFenceStruct.swift in Sources */,
 				C0D0F2EA238AAC9C00938421 /* UITextField-Extension.swift in Sources */,
+				C04540FE2438C32000030A88 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
