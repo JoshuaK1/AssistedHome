@@ -279,10 +279,10 @@
                                 <color key="textColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0b-MN-vWz">
-                                <rect key="frame" x="352" y="78" width="39" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0b-MN-vWz">
+                                <rect key="frame" x="347" y="68" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="USER">
+                                <state key="normal" image="ProfileView.png">
                                     <color key="titleColor" red="0.984503448" green="0.95376819369999999" blue="0.92143517730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -770,6 +770,7 @@
     </scenes>
     <resources>
         <image name="AssistedHomeTwo.png" width="400" height="400"/>
+        <image name="ProfileView.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
