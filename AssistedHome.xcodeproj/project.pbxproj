@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C00E19E62424B99500710AFE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E19E52424B99500710AFE /* AccountViewController.swift */; };
+		C00F44F6243BA059006720EB /* AssistedHomeTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = C00F44F5243BA059006720EB /* AssistedHomeTwo.png */; };
 		C03EA9E323CC65CC00BE610C /* icons8-delete-bin-64.png in Resources */ = {isa = PBXBuildFile; fileRef = C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */; };
 		C04540FE2438C32000030A88 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04540FD2438C32000030A88 /* PopupViewController.swift */; };
 		C05418F72395085900D295F6 /* BoundaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05418F62395085900D295F6 /* BoundaryViewController.swift */; };
@@ -59,6 +60,7 @@
 		A5C1D93124F4C7AB85DDA78F /* Pods-AssistedHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHome.release.xcconfig"; path = "Target Support Files/Pods-AssistedHome/Pods-AssistedHome.release.xcconfig"; sourceTree = "<group>"; };
 		BC5E647BC12E996210E1BC1B /* Pods-AssistedHomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssistedHomeTests.debug.xcconfig"; path = "Target Support Files/Pods-AssistedHomeTests/Pods-AssistedHomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C00E19E52424B99500710AFE /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C00F44F5243BA059006720EB /* AssistedHomeTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AssistedHomeTwo.png; sourceTree = "<group>"; };
 		C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-bin-64.png"; sourceTree = "<group>"; };
 		C04540FD2438C32000030A88 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		C05418F62395085900D295F6 /* BoundaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		C0F2D4F7238A859A0092BA1D /* AssistedHome */ = {
 			isa = PBXGroup;
 			children = (
+				C00F44F5243BA059006720EB /* AssistedHomeTwo.png */,
 				C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */,
 				C08BE83123CB7574009A5752 /* AssistedHomeLogo.png */,
 				C08BE82F23CB6C60009A5752 /* icons8-delete-bin-64.png */,
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C08BE83023CB6C60009A5752 /* icons8-delete-bin-64.png in Resources */,
+				C00F44F6243BA059006720EB /* AssistedHomeTwo.png in Resources */,
 				C0F2D503238A859D0092BA1D /* LaunchScreen.storyboard in Resources */,
 				C08BE83223CB7574009A5752 /* AssistedHomeLogo.png in Resources */,
 				C0F2D521238A8B130092BA1D /* GoogleService-Info.plist in Resources */,
