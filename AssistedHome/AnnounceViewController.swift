@@ -43,8 +43,35 @@ class AnnounceViewController: UIViewController {
         }
     }
     
+    // Function for sending notificatons via POST
+    func sendNotifications(){
+        let url = URL(string: "https://api.notifymyecho.com/v1/NotifyMe?notification=This%20is%20IOS&accessCode=amzn1.ask.account.AFYWLPJBB37FH5BSRVPBQCYDJLWH6KDO2GEC22AOUX5AF7INTD2OKVNVWW2DWJ6FEPWVAPJQDT5QUQFF3J64LV5TE66EIH7LMON6F5U6DGGEUDD6NHXRWZDLIRIPO3QM3ROFPJ662LEURCVA5XO7EBWYUZNYF7XSBLHXGZB6JBE3UVPMRNMSTK55XKCY74GKDBHTEZEA64TENUY")!
+        
+        let session = URLSession.shared
+        
+        var request = NSMutableURLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+        })
+        
+        task.resume()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Send test notification
+        sendNotifications()
         
         addSwipes()
         

@@ -772,10 +772,9 @@
         <image name="AssistedHomeLogo.png" width="400" height="258"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FxC-zg-rSJ"/>
         <segue reference="eoL-tB-EFj"/>
         <segue reference="Qv6-wk-9xc"/>
-        <segue reference="rGd-xB-PxM"/>
+        <segue reference="A30-40-v2Z"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>
