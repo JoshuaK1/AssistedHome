@@ -10,6 +10,7 @@
 		C00E19E62424B99500710AFE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E19E52424B99500710AFE /* AccountViewController.swift */; };
 		C00F44F6243BA059006720EB /* AssistedHomeTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = C00F44F5243BA059006720EB /* AssistedHomeTwo.png */; };
 		C00F44F8243BA42F006720EB /* ProfileView.png in Resources */ = {isa = PBXBuildFile; fileRef = C00F44F7243BA42F006720EB /* ProfileView.png */; };
+		C00F44FA243CCF82006720EB /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00F44F9243CCF82006720EB /* UserAccountViewController.swift */; };
 		C03EA9E323CC65CC00BE610C /* icons8-delete-bin-64.png in Resources */ = {isa = PBXBuildFile; fileRef = C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */; };
 		C04540FE2438C32000030A88 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04540FD2438C32000030A88 /* PopupViewController.swift */; };
 		C05418F72395085900D295F6 /* BoundaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05418F62395085900D295F6 /* BoundaryViewController.swift */; };
@@ -63,6 +64,7 @@
 		C00E19E52424B99500710AFE /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		C00F44F5243BA059006720EB /* AssistedHomeTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AssistedHomeTwo.png; sourceTree = "<group>"; };
 		C00F44F7243BA42F006720EB /* ProfileView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfileView.png; sourceTree = "<group>"; };
+		C00F44F9243CCF82006720EB /* UserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
 		C03EA9E223CC65CC00BE610C /* icons8-delete-bin-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-bin-64.png"; sourceTree = "<group>"; };
 		C04540FD2438C32000030A88 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		C05418F62395085900D295F6 /* BoundaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				C0F2D4F8238A859A0092BA1D /* AppDelegate.swift */,
 				C0F2D4FA238A859A0092BA1D /* ViewController.swift */,
 				C0F2D4FC238A859A0092BA1D /* Main.storyboard */,
+				C00F44F9243CCF82006720EB /* UserAccountViewController.swift */,
 				C04540FD2438C32000030A88 /* PopupViewController.swift */,
 				C0AAEE92243388B3003D0337 /* DetailedReminderView.swift */,
 				C00E19E52424B99500710AFE /* AccountViewController.swift */,
@@ -382,6 +385,7 @@
 				C0AAEE8F24334E57003D0337 /* EventDataModel.swift in Sources */,
 				C0F2D51B238A87930092BA1D /* LoginViewController.swift in Sources */,
 				C0AAEE93243388B3003D0337 /* DetailedReminderView.swift in Sources */,
+				C00F44FA243CCF82006720EB /* UserAccountViewController.swift in Sources */,
 				C078303423CC7B2200878DD3 /* GPSViewController.swift in Sources */,
 				C00E19E62424B99500710AFE /* AccountViewController.swift in Sources */,
 				C0FFA24E2395640A00B48F43 /* CLPlacemark-extension.swift in Sources */,
