@@ -345,6 +345,7 @@
                         <segue destination="Asz-Ty-bnG" kind="show" identifier="GPSButtonToGPSView" id="dda-HB-l2h"/>
                         <segue destination="3lu-Y5-ObO" kind="show" identifier="LogoutToHome" id="7as-kx-OJJ"/>
                         <segue destination="7ca-X5-lEd" kind="show" identifier="HomeToAccount" id="Qv6-wk-9xc"/>
+                        <segue destination="YeX-xu-CFm" kind="show" identifier="AccountToUserAccunt" id="bHx-dr-zK7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIl-aV-9jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -767,10 +768,10 @@
             </objects>
             <point key="canvasLocation" x="4938" y="336"/>
         </scene>
-        <!--View Controller-->
+        <!--User Account View Controller-->
         <scene sceneID="veX-JY-cAs">
             <objects>
-                <viewController id="YeX-xu-CFm" sceneMemberID="viewController">
+                <viewController id="YeX-xu-CFm" customClass="UserAccountViewController" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Mm-Vq-E0B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func AccountViewButton(_ sender: Any) {
-        performSegue(withIdentifier: "HomeToAccount", sender: self)
+        performSegue(withIdentifier: "AccountToUserAccunt", sender: self)
         
     }
     

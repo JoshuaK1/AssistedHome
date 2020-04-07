@@ -11,5 +11,9 @@ import UIKit
 
 class UserAccountViewController: UIViewController {
     
+    override func viewDidLoad() {
+        view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
+    }
+    
     
 }
