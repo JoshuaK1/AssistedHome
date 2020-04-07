@@ -35,7 +35,6 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewDidLoad() {
-        
         addSwipes()
         
         // Set data source for table view

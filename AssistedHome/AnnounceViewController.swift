@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class AnnounceViewController: UIViewController {
+    var completeStringArray = [String]()
+    
     
     @IBOutlet weak var textView: UIView!
     @IBOutlet weak var announceTextView: UITextView!
@@ -17,7 +19,26 @@ class AnnounceViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     
     @IBAction func sendButton(_ sender: Any) {
-        announceTextView.text = ""
+        
+        let receivedText = announceTextView.text
+        
+        let stringArray = receivedText?.components(separatedBy: " ")
+        
+        for string in stringArray! {
+            let string = string + "%20"
+            completeStringArray.append(string)
+        }
+        
+        let joinedString = completeStringArray.joined()
+        
+        print(joinedString)
+
+        // Send Notification
+        sendNotifications(message: joinedString)
+        
+        completeStringArray.removeAll()
+        
+        
     }
     
     
@@ -43,8 +64,35 @@ class AnnounceViewController: UIViewController {
         }
     }
     
+    // Function for sending notificatons via POST
+    func sendNotifications(message: String){
+        let url = URL(string: "https://api.notifymyecho.com/v1/NotifyMe?notification=\(message))&accessCode=amzn1.ask.account.AFYWLPJBB37FH5BSRVPBQCYDJLWH6KDO2GEC22AOUX5AF7INTD2OKVNVWW2DWJ6FEPWVAPJQDT5QUQFF3J64LV5TE66EIH7LMON6F5U6DGGEUDD6NHXRWZDLIRIPO3QM3ROFPJ662LEURCVA5XO7EBWYUZNYF7XSBLHXGZB6JBE3UVPMRNMSTK55XKCY74GKDBHTEZEA64TENUY")!
+        
+        let session = URLSession.shared
+        
+        let request = NSMutableURLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            
+            guard data != nil else {
+                return
+            }
+        })
+        
+        task.resume()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Send test notification
+        //sendNotifications()
         
         addSwipes()
         

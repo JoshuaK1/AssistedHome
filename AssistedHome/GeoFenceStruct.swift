@@ -8,10 +8,10 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 
 struct GeoFences {
     
     static var geoFences = [CLCircularRegion]()
-
 }

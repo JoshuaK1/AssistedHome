@@ -32,6 +32,8 @@ extension BoundaryViewController {
 
 class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
+    
+    
     @IBOutlet weak var homeNavButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBAction func homeNavButton(_ sender: Any) {
@@ -40,6 +42,24 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     var boundaries: [MKPointAnnotation] = []
+    
+    
+    var circle: MKOverlay?
+    
+//    func createCircle(location: CLLocation){
+//
+//        self.removeCircle()
+//
+//        self.circle = MKCircle(center: location.coordinate, radius: 30 as CLLocationDistance)
+//        self.mapView.addOverlay(circle!)
+//    }
+//
+//    func removeCircle() {
+//        if let circle = self.circle {
+//            self.mapView.removeOverlay(circle)
+//            self.circle = nil
+//        }
+//    }
     
     // Firebase database reference
      var ref: DatabaseReference!
@@ -170,7 +190,6 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let boundaryToRemove = key
         
         // Set firebase reference
-        
         let userID        = Auth.auth().currentUser?.uid
         let boundaryRef   = Database.database().reference(withPath: "boundaries")
         let uidRef        = boundaryRef.child(userID!)
@@ -181,6 +200,21 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             let value = snapshot.value as? NSDictionary
             
             let boundarySubtitle = value?["subTitle"] as? String ?? ""
+            let boundaryLongtitude = value?["longtitude"] as? String ?? ""
+            let boundaryLatitude = value?["latitude"] as? String ?? ""
+            
+            // Print longtitude and latitude strings
+            print(boundaryLongtitude)
+            print(boundaryLatitude)
+            
+            // Convert strings to long and lat
+            let boundaryLongtitudeDouble = NumberFormatter().number(from: boundaryLongtitude)?.doubleValue
+            let boundaryLatitudeDouble = NumberFormatter().number(from: boundaryLatitude)?.doubleValue
+            
+            let coord = CLLocationCoordinate2DMake(boundaryLatitudeDouble!, boundaryLongtitudeDouble!)
+            
+            // Call compare coordinate function
+            self.compareCoordinates(coordinate: coord)
             
             self.removePendingNotifications(identifier: boundarySubtitle)
             
@@ -194,6 +228,17 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             }
         })
         
+    }
+    
+    func compareCoordinates(coordinate: CLLocationCoordinate2D){
+        
+        for overlay in self.mapView.overlays {
+            if overlay.coordinate.longitude == coordinate.longitude && overlay.coordinate.latitude == coordinate.latitude {
+                self.mapView.removeOverlay(overlay)
+            } else {
+                print("No overlay to remove")
+            }
+        }
     }
     
     // Function to remove any pending notifications
@@ -258,7 +303,13 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             self.mapView.addAnnotation(annotation)
             
-            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(latitudeDouble!, longtitdeDouble!), radius: 30))
+            // Create location
+            //let myLocation = CLLocation(latitude: latitudeDouble!, longitude: longtitdeDouble!)
+            
+            // Create circle form location
+            
+           // self.createCircle(location: myLocation)
+           self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(latitudeDouble!, longtitdeDouble!), radius: 30))
         
         })
         
@@ -406,7 +457,7 @@ class BoundaryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             self.postUserBoundaries(annotations: self.boundaries, userID: userID!)
             
             
-            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude), radius: 200))
+            self.mapView.addOverlay(MKCircle(center: CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude), radius: 30))
         
     }
   }
