@@ -35,6 +35,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var AccountViewButton: UIButton!
     
     
+    @IBAction func AlertsViewButton(_ sender: Any) {
+        performSegue(withIdentifier: "AlertsToStoredAlerts", sender: self)
+    }
+    
     @IBAction func ReminderViewButton(_ sender: Any) {
         performSegue(withIdentifier: "HomeToAccount", sender: self)
     }

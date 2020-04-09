@@ -234,6 +234,9 @@
                                 <state key="normal" title="Alerts">
                                     <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="AlertsViewButton:" destination="uUl-NE-mm7" eventType="touchUpInside" id="DlF-F0-Hjs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9n-IN-zEO">
                                 <rect key="frame" x="218" y="630" width="161" height="110"/>
@@ -346,6 +349,7 @@
                         <segue destination="3lu-Y5-ObO" kind="show" identifier="LogoutToHome" id="7as-kx-OJJ"/>
                         <segue destination="7ca-X5-lEd" kind="show" identifier="HomeToAccount" id="Qv6-wk-9xc"/>
                         <segue destination="YeX-xu-CFm" kind="show" identifier="AccountToUserAccunt" id="bHx-dr-zK7"/>
+                        <segue destination="awu-e0-OwL" kind="show" identifier="AlertsToStoredAlerts" id="axv-wV-Ikz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIl-aV-9jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -567,6 +571,30 @@
             </objects>
             <point key="canvasLocation" x="3359" y="1793"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Hp4-nc-zO6">
+            <objects>
+                <viewController id="awu-e0-OwL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2qw-Tg-wku">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="STORED ALERTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM6-V0-1Hj">
+                                <rect key="frame" x="129" y="67" width="156" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="yn7-SM-kg1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2f-sW-QqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4567" y="1795"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="4Od-eG-qcE">
             <objects>
@@ -735,7 +763,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spj-y1-UPb">
-                                <rect key="frame" x="52" y="691" width="143" height="81"/>
+                                <rect key="frame" x="20" y="695" width="112" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Send"/>
@@ -744,12 +772,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMG-ul-UYg">
-                                <rect key="frame" x="217" y="691" width="143" height="81"/>
+                                <rect key="frame" x="282" y="695" width="112" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="clearButton:" destination="AUu-1C-mYf" eventType="touchUpInside" id="7Ed-Rb-CHi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUA-TB-KFd">
+                                <rect key="frame" x="151" y="695" width="112" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Store"/>
+                                <connections>
+                                    <action selector="storeButton:" destination="AUu-1C-mYf" eventType="touchUpInside" id="rCd-qB-gRc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -760,13 +797,14 @@
                         <outlet property="announceTextView" destination="bU1-IG-5bS" id="5II-OD-beN"/>
                         <outlet property="clearButton" destination="LMG-ul-UYg" id="gO3-Zw-GCz"/>
                         <outlet property="sendButton" destination="Spj-y1-UPb" id="t1u-3m-tUP"/>
+                        <outlet property="storeButton" destination="kUA-TB-KFd" id="ghQ-Zb-OQh"/>
                         <outlet property="textView" destination="Am4-iR-Yt5" id="RLh-fX-10S"/>
                         <segue destination="uUl-NE-mm7" kind="show" identifier="AnnounceViewToHome" id="A30-40-v2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHA-XO-dOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4938" y="336"/>
+            <point key="canvasLocation" x="4937.68115942029" y="334.82142857142856"/>
         </scene>
         <!--User Account View Controller-->
         <scene sceneID="veX-JY-cAs">
@@ -791,7 +829,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
         <segue reference="Qv6-wk-9xc"/>
-        <segue reference="3BO-bs-6Qk"/>
+        <segue reference="A30-40-v2Z"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>
