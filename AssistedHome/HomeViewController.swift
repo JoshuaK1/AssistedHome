@@ -211,7 +211,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     let latitude   = event.structuredLocation?.geoLocation?.coordinate.latitude
                     let longtitude = event.structuredLocation?.geoLocation?.coordinate.longitude
                     
-                    
                     // Get event time
                     let time = event.startDate
                     Events.eventTime.append(time!)
