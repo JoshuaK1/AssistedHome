@@ -544,7 +544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spa-Zm-6Eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7240.579710144928" y="1041.9642857142858"/>
+            <point key="canvasLocation" x="7632" y="1059"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mo4-Dp-nW7">
@@ -885,6 +885,7 @@
                         <outlet property="storeButton" destination="kUA-TB-KFd" id="ghQ-Zb-OQh"/>
                         <outlet property="textView" destination="Am4-iR-Yt5" id="RLh-fX-10S"/>
                         <segue destination="uUl-NE-mm7" kind="show" identifier="AnnounceViewToHome" id="A30-40-v2Z"/>
+                        <segue destination="9bz-pF-MAx" kind="presentation" identifier="sendAnnouncement" id="nbM-Lq-VXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHA-XO-dOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -914,7 +915,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
         <segue reference="aNp-FT-ylO"/>
-        <segue reference="US0-lD-I8Y"/>
+        <segue reference="nbM-Lq-VXu"/>
         <segue reference="Qv6-wk-9xc"/>
         <segue reference="A30-40-v2Z"/>
         <segue reference="ynO-dI-6vb"/>
