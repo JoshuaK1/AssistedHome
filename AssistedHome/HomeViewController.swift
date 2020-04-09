@@ -35,12 +35,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var AccountViewButton: UIButton!
     
     
+    @IBAction func AlertsViewButton(_ sender: Any) {
+        performSegue(withIdentifier: "AlertsToStoredAlerts", sender: self)
+    }
+    
     @IBAction func ReminderViewButton(_ sender: Any) {
         performSegue(withIdentifier: "HomeToAccount", sender: self)
     }
     
     @IBAction func AccountViewButton(_ sender: Any) {
-        performSegue(withIdentifier: "HomeToAccount", sender: self)
+        performSegue(withIdentifier: "AccountToUserAccunt", sender: self)
         
     }
     
@@ -109,12 +113,63 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager: CLLocationManager = CLLocationManager()
     
+    func obtainKeys(){
+        
+        // Grab user ID
+        let userID = Auth.auth().currentUser?.uid
+        
+        let alertRef = Database.database().reference(withPath: "storedAlerts")
+        let uidRef = alertRef.child(userID!)
+        
+        uidRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            for value in snapshot.children {
+                let key = (value as AnyObject).key as String
+                print(key)
+                
+                // Function call to add boundaries
+                self.obtainAlertsFromFirebase(key: key)
+                
+            }
+        })
+        
+    }
+    
+    //Functions for retrieving storedAlerts
+    func obtainAlertsFromFirebase(key: String){
+        // create firebase reference
+        let userID = Auth.auth().currentUser?.uid
+        let alertRef = Database.database().reference(withPath: "storedAlerts")
+        let uidRef = alertRef.child(userID!)
+        let lowerAlertRef = uidRef.child(key)
+        
+        // Get values from firebase snapshot
+        
+        lowerAlertRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            let value = snapshot.value as? NSDictionary
+            
+            let alertString      = value?["alertText"]      as? String ?? ""
+            
+            print("from addBoundaries method", alertString)
+            
+            // Add alert string to stored alerts struct
+            StoredAlerts.storedAlerts.append(alertString)
+            
+            
+        })
+        
+    }
+    
+    
     // Functions for enterring and exiting regions
     override func viewDidLoad() {
+        
+        self.obtainKeys()
+        
         // Clearing structs to prevent duplicate table data
         Events.locationStrings.removeAll()
         Events.eventTitles    .removeAll()
         Events.eventTime      .removeAll()
+        StoredAlerts.storedAlerts.removeAll()
         
          self.requestAccessToCelandar()
         
@@ -210,7 +265,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     // Get long and lat from calendar Event
                     let latitude   = event.structuredLocation?.geoLocation?.coordinate.latitude
                     let longtitude = event.structuredLocation?.geoLocation?.coordinate.longitude
-                    
                     
                     // Get event time
                     let time = event.startDate

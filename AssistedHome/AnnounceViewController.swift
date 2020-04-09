@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class AnnounceViewController: UIViewController {
     var completeStringArray = [String]()
@@ -17,6 +18,7 @@ class AnnounceViewController: UIViewController {
     @IBOutlet weak var announceTextView: UITextView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var storeButton: UIButton!
     
     @IBAction func sendButton(_ sender: Any) {
         
@@ -41,6 +43,22 @@ class AnnounceViewController: UIViewController {
         
     }
     
+    @IBAction func storeButton(_ sender: Any) {
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        let alert = announceTextView.text
+        
+        // post alert to firebase
+        let alertRef = Database.database().reference(withPath: "storedAlerts")
+        
+        let userAlerts = alertRef.child(userID!)
+        
+        let alertToPost = userAlerts.childByAutoId()
+        alertToPost.child("alertText") .setValue(alert!)
+        
+        
+    }
     
     @IBAction func clearButton(_ sender: Any) {
         announceTextView.text = ""
@@ -104,10 +122,17 @@ class AnnounceViewController: UIViewController {
         announceTextView.font      = UIFont(name: "Arial", size: 20)
         announceTextView.textColor = UIColor.white
         
+        // Apply button styling
         clearButton.setButtonStyles()
         sendButton.setButtonStyles()
+        storeButton.setButtonStyles()
+        
+        // Reset font sizing
+        clearButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
+        sendButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
+        storeButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
+        
         
     }
     
-    
-}
+  }
