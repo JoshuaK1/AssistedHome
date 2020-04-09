@@ -11,7 +11,7 @@ import CoreLocation
 
 struct LocationHistory {
     
-    // Declare static array of CLLocation Objects
-    static var locationHistory = [CLLocation]()
+    // Declare static array of CLLocation Coordindate objects
+    static var locationHistory = [CLLocationCoordinate2D]()
     
 }

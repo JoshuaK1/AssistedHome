@@ -222,7 +222,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     func localiseLocationHistory(longtitude: String, latitude: String){
         
+        // Cast strings as double values
+        let longDouble = (longtitude as NSString).doubleValue
+        let latDouble = (latitude as NSString).doubleValue
         
+        // Build location object from longtitude and latitude
+        let location = CLLocationCoordinate2DMake(latDouble, longDouble)
+        
+        LocationHistory.locationHistory.append(location)
         
         
     }

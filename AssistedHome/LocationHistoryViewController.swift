@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class LocationHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -60,10 +61,48 @@ class LocationHistoryViewController: UIViewController, UITableViewDataSource, UI
        // self.performSegue(withIdentifier: "ReminderToDetailed", sender: self)
     }
     
+    // Build address object
+    func buildAddress(){
+        for location in LocationHistory.locationHistory {
+            let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            
+            reverseLocationLookup(for: clLocation) { placemark in
+                guard let placemark = placemark else { return }
+                
+                let address = placemark.createAddressString()
+                
+                print(address)
+        }
+    }
+}
+    
+    // Reverse location lookup
+    func reverseLocationLookup(for location: CLLocation, completion: @escaping (CLPlacemark?) -> Void){
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location){
+            placemarks, error in
+            guard error == nil else {
+                print("Error")
+                completion(nil)
+                return
+                
+            }
+            guard let placemark = placemarks?[0] else {
+                print("Placemark is nil")
+                completion(nil)
+                return
+            }
+            completion(placemark)
+            
+        }
+    }
+    
     override func viewDidLoad() {
         
         // Add support for swipe gestures
         addSwipes()
+        
+        buildAddress()
         
         // Set background gradient
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)
