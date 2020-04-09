@@ -35,6 +35,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var AccountViewButton: UIButton!
     
     
+    @IBAction func GPSHistoryButton(_ sender: Any) {
+        performSegue(withIdentifier: "homeToLocationHistory", sender: self)
+    }
+    
     @IBAction func AlertsViewButton(_ sender: Any) {
         performSegue(withIdentifier: "AlertsToStoredAlerts", sender: self)
     }
@@ -172,6 +176,57 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func obtainLocationKeys(){
+        // Grab user ID
+        let userID = Auth.auth().currentUser?.uid
+        
+        let alertRef = Database.database().reference(withPath: "locationHistory")
+        let uidRef = alertRef.child(userID!)
+        
+        uidRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            for value in snapshot.children {
+                let key = (value as AnyObject).key as String
+                print(key)
+                
+                // Function call to add boundaries
+                self.obtainLocationsFromFirebase(key: key)
+                
+            }
+        })
+        
+    }
+    
+    // Retrieve locations from Firebase
+    func obtainLocationsFromFirebase(key: String){
+        // Create firebase reference
+        let userID = Auth.auth().currentUser?.uid
+        let locRef = Database.database().reference(withPath: "locationHistory")
+        let uidRef = locRef.child(userID!)
+        let lowerLocRef = uidRef.child(key)
+        
+        // Get Values from snapshot
+        lowerLocRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            let value = snapshot.value as? NSDictionary
+            
+            let longString     = value?["longtitude"]      as? String ?? ""
+            let latString      = value?["latitude"]      as? String ?? ""
+            
+            print("from obtainLocations method", longString)
+            print("from obtainLocations method", latString)
+            
+            // Call function to localise location history
+            self.localiseLocationHistory(longtitude: longString, latitude: latString)
+        
+       })
+    }
+    
+    func localiseLocationHistory(longtitude: String, latitude: String){
+        
+        
+        
+        
+    }
+    
     func postCurrentLocationToFirebase(latitude: String, longtitude: String){
         // Get current user ref
         let userID = Auth.auth().currentUser?.uid
@@ -192,6 +247,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     // Functions for enterring and exiting regions
     override func viewDidLoad() {
         
+        self.obtainLocationKeys()
         self.obtainKeys()
         
         // Clearing structs to prevent duplicate table data
