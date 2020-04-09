@@ -626,6 +626,7 @@
                     </view>
                     <connections>
                         <outlet property="storedAlertsTableView" destination="QAa-RO-moP" id="x2g-nQ-F6q"/>
+                        <segue destination="uUl-NE-mm7" kind="show" identifier="alertsToHome" id="wDA-KI-rSR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2f-sW-QqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -866,7 +867,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
         <segue reference="Qv6-wk-9xc"/>
-        <segue reference="eDS-Iq-MPs"/>
+        <segue reference="3BO-bs-6Qk"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>
