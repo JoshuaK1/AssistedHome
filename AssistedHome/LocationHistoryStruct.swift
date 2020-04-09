@@ -14,4 +14,6 @@ struct LocationHistory {
     // Declare static array of CLLocation Coordindate objects
     static var locationHistory = [CLLocationCoordinate2D]()
     
+    static var addressStrings = [String]()
+    
 }

@@ -14,6 +14,8 @@ class LocationHistoryViewController: UIViewController, UITableViewDataSource, UI
     
     @IBOutlet weak var locationHistoryTableView: UITableView!
     
+    var locationStrings = [String]()
+    
     // Add support for swipe gestures
     func addSwipes(){
         let directions:[UISwipeGestureRecognizer.Direction] = [.right, .left, .up, .down]
@@ -39,16 +41,15 @@ class LocationHistoryViewController: UIViewController, UITableViewDataSource, UI
     
     // Table view stubs
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print(eventIdentifiers.count)
-        return 1
+        print(LocationHistory.addressStrings.count)
+        return LocationHistory.addressStrings.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath);
-//        cell.textLabel?.text = eventIdentifiers[indexPath.row]
-//        cell.detailTextLabel?.text = locations[indexPath.row]
-//        print(locations[indexPath.row])
+        cell.textLabel?.text = LocationHistory.addressStrings[indexPath.row]
+        print(LocationHistory.addressStrings[indexPath.row])
         return cell
     }
     
@@ -61,48 +62,48 @@ class LocationHistoryViewController: UIViewController, UITableViewDataSource, UI
        // self.performSegue(withIdentifier: "ReminderToDetailed", sender: self)
     }
     
-    // Build address object
-    func buildAddress(){
-        for location in LocationHistory.locationHistory {
-            let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
-            
-            reverseLocationLookup(for: clLocation) { placemark in
-                guard let placemark = placemark else { return }
-                
-                let address = placemark.createAddressString()
-                
-                print(address)
-        }
-    }
-}
-    
-    // Reverse location lookup
-    func reverseLocationLookup(for location: CLLocation, completion: @escaping (CLPlacemark?) -> Void){
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location){
-            placemarks, error in
-            guard error == nil else {
-                print("Error")
-                completion(nil)
-                return
-                
-            }
-            guard let placemark = placemarks?[0] else {
-                print("Placemark is nil")
-                completion(nil)
-                return
-            }
-            completion(placemark)
-            
-        }
-    }
+//    // Build address object
+//    func buildAddress(){
+//        for location in LocationHistory.locationHistory {
+//            let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+//
+//            reverseLocationLookup(for: clLocation) { placemark in
+//                guard let placemark = placemark else { return }
+//
+//                let address = placemark.createAddressString()
+//
+//                self.locationStrings.append(address)
+//
+//                print(address)
+//        }
+//    }
+//}
+//
+//    // Reverse location lookup
+//    func reverseLocationLookup(for location: CLLocation, completion: @escaping (CLPlacemark?) -> Void){
+//        let geocoder = CLGeocoder()
+//        geocoder.reverseGeocodeLocation(location){
+//            placemarks, error in
+//            guard error == nil else {
+//                print("Error")
+//                completion(nil)
+//                return
+//
+//            }
+//            guard let placemark = placemarks?[0] else {
+//                print("Placemark is nil")
+//                completion(nil)
+//                return
+//            }
+//            completion(placemark)
+//
+//        }
+//    }
     
     override func viewDidLoad() {
         
         // Add support for swipe gestures
         addSwipes()
-        
-        buildAddress()
         
         // Set background gradient
         view.setGradientBackground(colorOne: Colours.lightBlue, colorTwo: Colours.purple)

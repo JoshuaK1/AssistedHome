@@ -211,8 +211,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             let longString     = value?["longtitude"]      as? String ?? ""
             let latString      = value?["latitude"]      as? String ?? ""
             
-            print("from obtainLocations method", longString)
-            print("from obtainLocations method", latString)
+//            print("from obtainLocations method", longString)
+//            print("from obtainLocations method", latString)
             
             // Call function to localise location history
             self.localiseLocationHistory(longtitude: longString, latitude: latString)
@@ -230,6 +230,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let location = CLLocationCoordinate2DMake(latDouble, longDouble)
         
         LocationHistory.locationHistory.append(location)
+        
+        self.buildAddress()
         
         
     }
@@ -250,18 +252,60 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    // Reverse location lookup
+    func reverseLocationLookup(for location: CLLocation, completion: @escaping (CLPlacemark?) -> Void){
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location){
+            placemarks, error in
+            guard error == nil else {
+                print("Error")
+                completion(nil)
+                return
+                
+            }
+            guard let placemark = placemarks?[0] else {
+                print("Placemark is nil")
+                completion(nil)
+                return
+            }
+            completion(placemark)
+            
+        }
+    }
+    
+    // Build address object
+    func buildAddress(){
+        for location in LocationHistory.locationHistory {
+            print("build addresses called")
+            print(location)
+            let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            
+            reverseLocationLookup(for: clLocation) { placemark in
+                guard let placemark = placemark else { return }
+                
+                let address = placemark.createAddressString()
+                
+                LocationHistory.addressStrings.append(address)
+                
+                print(address)
+            }
+        }
+    }
+    
     
     // Functions for enterring and exiting regions
     override func viewDidLoad() {
         
         self.obtainLocationKeys()
         self.obtainKeys()
-        
+       
         // Clearing structs to prevent duplicate table data
         Events.locationStrings.removeAll()
         Events.eventTitles    .removeAll()
         Events.eventTime      .removeAll()
         StoredAlerts.storedAlerts.removeAll()
+        LocationHistory.addressStrings.removeAll()
+        LocationHistory.locationHistory.removeAll()
         
          self.requestAccessToCelandar()
         
@@ -280,6 +324,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         setUserRef()
         dateLabel()
         timeLabel()
+        
         
         LeadingConstraint.constant = -230
         
