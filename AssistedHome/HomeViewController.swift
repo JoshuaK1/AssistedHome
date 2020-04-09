@@ -169,6 +169,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         Events.locationStrings.removeAll()
         Events.eventTitles    .removeAll()
         Events.eventTime      .removeAll()
+        StoredAlerts.storedAlerts.removeAll()
         
          self.requestAccessToCelandar()
         

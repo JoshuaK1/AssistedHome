@@ -627,11 +627,27 @@
                     <connections>
                         <outlet property="storedAlertsTableView" destination="QAa-RO-moP" id="x2g-nQ-F6q"/>
                         <segue destination="uUl-NE-mm7" kind="show" identifier="alertsToHome" id="wDA-KI-rSR"/>
+                        <segue destination="4RL-e6-pE4" kind="show" identifier="storedAlertstoDetailedStored" id="egA-kZ-YDB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2f-sW-QqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4567" y="1795"/>
+        </scene>
+        <!--Detailed Stored Alerts View Controller-->
+        <scene sceneID="6Ho-fx-NhU">
+            <objects>
+                <viewController id="4RL-e6-pE4" customClass="DetailedStoredAlertsViewController" customModule="AssistedHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yiD-a4-cF5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="t7i-c6-iYz"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hnL-tQ-al1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5445" y="1795"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4Od-eG-qcE">
@@ -867,7 +883,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
         <segue reference="Qv6-wk-9xc"/>
-        <segue reference="3BO-bs-6Qk"/>
+        <segue reference="wDA-KI-rSR"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>

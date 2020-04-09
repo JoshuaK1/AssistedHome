@@ -14,4 +14,6 @@ struct StoredAlerts {
     // Stored alerts array
     static var storedAlerts = [String]()
     
+    static var alertIndex = 0
+    
 }

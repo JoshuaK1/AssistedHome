@@ -35,7 +35,10 @@ class StoredAlertsViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell \(indexPath.row)")
         
-        //self.performSegue(withIdentifier: "ReminderToDetailed", sender: self)
+        // Assign selected cell index to struct var
+        StoredAlerts.alertIndex = indexPath.row
+        
+        self.performSegue(withIdentifier: "storedAlertstoDetailedStored", sender: self)
     }
     
     @IBOutlet weak var storedAlertsTableView: UITableView!
@@ -60,7 +63,6 @@ class StoredAlertsViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidAppear(_ animated: Bool) {
         // Obtain data from firebase
-        //self.obtainKeys()
     }
     
     override func viewDidLoad() {
