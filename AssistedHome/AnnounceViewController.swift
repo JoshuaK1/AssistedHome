@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class AnnounceViewController: UIViewController {
     var completeStringArray = [String]()
@@ -43,6 +44,20 @@ class AnnounceViewController: UIViewController {
     }
     
     @IBAction func storeButton(_ sender: Any) {
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        let alert = announceTextView.text
+        
+        // post alert to firebase
+        let alertRef = Database.database().reference(withPath: "storedAlerts")
+        
+        let userAlerts = alertRef.child(userID!)
+        
+        let alertToPost = userAlerts.childByAutoId()
+        alertToPost.child("alertText") .setValue(alert!)
+        
+        
     }
     
     @IBAction func clearButton(_ sender: Any) {
@@ -120,5 +135,4 @@ class AnnounceViewController: UIViewController {
         
     }
     
-    
-}
+  }
