@@ -159,6 +159,35 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    // Get current location of device
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        // Parse long and lat values to strings
+        let latitude   = String(format: "%f", locValue.latitude)
+        let longtitude = String(format: "%f", locValue.longitude)
+        
+        postCurrentLocationToFirebase(latitude: latitude, longtitude: longtitude)
+        
+    }
+    
+    func postCurrentLocationToFirebase(latitude: String, longtitude: String){
+        // Get current user ref
+        let userID = Auth.auth().currentUser?.uid
+        
+        let locRef = Database.database().reference(withPath: "locationHistory")
+        
+        
+        let locations = locRef.child(userID!)
+        
+        let locToPost = locations.childByAutoId()
+        locToPost.child("latitude").setValue(latitude)
+        locToPost.child("longtitude").setValue(longtitude)
+        
+        
+    }
+    
     
     // Functions for enterring and exiting regions
     override func viewDidLoad() {
