@@ -129,7 +129,7 @@ class AnnounceViewController: UIViewController {
         
         // Reset font sizing
         clearButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
-        sendButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
+        sendButton.titleLabel?.font    = UIFont.boldSystemFont(ofSize: 15.0)
         storeButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
         
         

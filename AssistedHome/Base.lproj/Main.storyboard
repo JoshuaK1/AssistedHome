@@ -641,13 +641,44 @@
                     <view key="view" contentMode="scaleToFill" id="yiD-a4-cF5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UQb-5O-sax">
+                                <rect key="frame" x="35" y="120" width="343" height="486"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ALERT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbx-ym-ySa">
+                                <rect key="frame" x="186" y="65" width="61" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ck3-8v-V5d">
+                                <rect key="frame" x="110" y="681" width="194" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendAlertButton:" destination="4RL-e6-pE4" eventType="touchUpInside" id="T3k-8U-32K"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.0031086241359999998" green="0.52945029740000005" blue="0.77637201550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="t7i-c6-iYz"/>
                     </view>
+                    <connections>
+                        <outlet property="alertTextView" destination="UQb-5O-sax" id="sgl-6S-JAv"/>
+                        <outlet property="sendAlertButton" destination="ck3-8v-V5d" id="MT5-NB-lB7"/>
+                        <segue destination="awu-e0-OwL" kind="show" identifier="detailedAlertToStoredAlerts" id="aNp-FT-ylO"/>
+                        <segue destination="9bz-pF-MAx" kind="presentation" identifier="detailedAlertConfirmation" id="US0-lD-I8Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnL-tQ-al1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5445" y="1795"/>
+            <point key="canvasLocation" x="5444.9275362318849" y="1794.6428571428571"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4Od-eG-qcE">
@@ -882,8 +913,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eoL-tB-EFj"/>
+        <segue reference="aNp-FT-ylO"/>
+        <segue reference="US0-lD-I8Y"/>
         <segue reference="Qv6-wk-9xc"/>
-        <segue reference="wDA-KI-rSR"/>
+        <segue reference="A30-40-v2Z"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>
