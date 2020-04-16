@@ -85,11 +85,12 @@
                         <outlet property="loginButton" destination="vXK-51-Mij" id="jWs-OW-2z7"/>
                         <segue destination="dsV-Y3-ioQ" kind="show" identifier="showSignupViewController" id="ynO-dI-6vb"/>
                         <segue destination="QED-Xg-TJt" kind="show" identifier="showLoginViewController" id="eoL-tB-EFj"/>
+                        <segue destination="uUl-NE-mm7" kind="show" identifier="startToHome" id="9Bf-oH-Cgv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaS-LO-gWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1690" y="530"/>
+            <point key="canvasLocation" x="959" y="530"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ynl-4E-N63">
@@ -821,6 +822,11 @@
                                     <action selector="loginButton:" destination="QED-Xg-TJt" eventType="touchUpInside" id="wJs-8e-6Ws"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRd-XF-sEL" customClass="GIDSignInButton">
+                                <rect key="frame" x="137" y="693" width="139" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0031086241360753775" green="0.52945029735565186" blue="0.77637201547622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="2Ll-6m-mFH"/>
@@ -837,7 +843,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaI-9o-LVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3261" y="-197"/>
+            <point key="canvasLocation" x="3260.8695652173915" y="-197.54464285714286"/>
         </scene>
         <!--Title-->
         <scene sceneID="vyJ-yy-SAA">
@@ -978,11 +984,11 @@
         <image name="ProfileView.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O59-vi-F1a"/>
+        <segue reference="eoL-tB-EFj"/>
         <segue reference="axv-wV-Ikz"/>
         <segue reference="US0-lD-I8Y"/>
         <segue reference="Qv6-wk-9xc"/>
-        <segue reference="JJK-YQ-KjW"/>
+        <segue reference="9Bf-oH-Cgv"/>
         <segue reference="ynO-dI-6vb"/>
     </inferredMetricsTieBreakers>
 </document>

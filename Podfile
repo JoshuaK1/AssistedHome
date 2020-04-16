@@ -11,6 +11,10 @@ pod 'Firebase/Database'
 
 pod 'BEMCheckBox'
 
+pod 'GoogleSignIn'
+
+pod 'AppAuth', '1.2.0'
+
 target 'AssistedHome' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
