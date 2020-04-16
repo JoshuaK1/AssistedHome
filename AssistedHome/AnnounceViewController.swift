@@ -40,6 +40,8 @@ class AnnounceViewController: UIViewController {
         
         completeStringArray.removeAll()
         
+        performSegue(withIdentifier: "sendAnnouncement", sender: self)
+        
         
     }
     
@@ -56,6 +58,8 @@ class AnnounceViewController: UIViewController {
         
         let alertToPost = userAlerts.childByAutoId()
         alertToPost.child("alertText") .setValue(alert!)
+        
+        performSegue(withIdentifier: "sendAnnouncement", sender: self)
         
         
     }
@@ -129,7 +133,7 @@ class AnnounceViewController: UIViewController {
         
         // Reset font sizing
         clearButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
-        sendButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
+        sendButton.titleLabel?.font    = UIFont.boldSystemFont(ofSize: 15.0)
         storeButton.titleLabel?.font   = UIFont.boldSystemFont(ofSize: 15.0)
         
         

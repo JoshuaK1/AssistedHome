@@ -35,6 +35,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var AccountViewButton: UIButton!
     
     
+    @IBAction func GPSHistoryButton(_ sender: Any) {
+        performSegue(withIdentifier: "homeToLocationHistory", sender: self)
+    }
+    
     @IBAction func AlertsViewButton(_ sender: Any) {
         performSegue(withIdentifier: "AlertsToStoredAlerts", sender: self)
     }
@@ -159,17 +163,148 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    // Get current location of device
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        // Parse long and lat values to strings
+        let latitude   = String(format: "%f", locValue.latitude)
+        let longtitude = String(format: "%f", locValue.longitude)
+        
+        postCurrentLocationToFirebase(latitude: latitude, longtitude: longtitude)
+        
+    }
+    
+    func obtainLocationKeys(){
+        // Grab user ID
+        let userID = Auth.auth().currentUser?.uid
+        
+        let alertRef = Database.database().reference(withPath: "locationHistory")
+        let uidRef = alertRef.child(userID!)
+        
+        uidRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            for value in snapshot.children {
+                let key = (value as AnyObject).key as String
+                print(key)
+                
+                // Function call pull locations from firebase
+                self.obtainLocationsFromFirebase(key: key)
+                
+            }
+        })
+        
+    }
+    
+    // Retrieve locations from Firebase
+    func obtainLocationsFromFirebase(key: String){
+        // Create firebase reference
+        let userID = Auth.auth().currentUser?.uid
+        let locRef = Database.database().reference(withPath: "locationHistory")
+        let uidRef = locRef.child(userID!)
+        let lowerLocRef = uidRef.child(key)
+        
+        // Get Values from snapshot
+        lowerLocRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            let value = snapshot.value as? NSDictionary
+            
+            let longString     = value?["longtitude"]    as? String ?? ""
+            let latString      = value?["latitude"]      as? String ?? ""
+            
+            // Call function to localise location history
+            self.localiseLocationHistory(longtitude: longString, latitude: latString)
+            
+            
+       })
+    }
+    
+    func localiseLocationHistory(longtitude: String, latitude: String){
+        
+        // Cast strings as double values
+        let longDouble = (longtitude as NSString).doubleValue
+        let latDouble = (latitude as NSString).doubleValue
+        
+        // Build location object from longtitude and latitude
+        let location = CLLocationCoordinate2DMake(latDouble, longDouble)
+        
+        LocationHistory.locationHistory.append(location)
+        
+        
+    }
+    
+    func postCurrentLocationToFirebase(latitude: String, longtitude: String){
+        // Get current user ref
+        let userID = Auth.auth().currentUser?.uid
+        
+        let locRef = Database.database().reference(withPath: "locationHistory")
+    
+        let locations = locRef.child(userID!)
+        
+        let locToPost = locations.childByAutoId()
+        locToPost.child("latitude").setValue(latitude)
+        locToPost.child("longtitude").setValue(longtitude)
+        
+        
+    }
+    
+    // Reverse location lookup
+    func reverseLocationLookup(for location: CLLocation, completion: @escaping (CLPlacemark?) -> Void){
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location){
+            placemarks, error in
+            guard error == nil else {
+                print("Error")
+                completion(nil)
+                return
+                
+            }
+            guard let placemark = placemarks?[0] else {
+                print("Placemark is nil")
+                completion(nil)
+                return
+            }
+            completion(placemark)
+            
+        }
+    }
+    
+    // Build address object
+    func buildAddress(){
+        for location in LocationHistory.locationHistory {
+            print("build addresses called")
+            print(location)
+            let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            
+            reverseLocationLookup(for: clLocation) { placemark in
+                guard let placemark = placemark else { return }
+                
+                let address = placemark.createAddressString()
+                
+                LocationHistory.addressStrings.append(address)
+                
+                print(address)
+            }
+        }
+    }
+    
     
     // Functions for enterring and exiting regions
     override func viewDidLoad() {
         
+        LocationHistory.addressStrings = [String]()
+        LocationHistory.locationHistory = [CLLocationCoordinate2D]()
+        
+        self.obtainLocationKeys()
         self.obtainKeys()
         
+        print("Count of locationHistory", LocationHistory.locationHistory.count)
+       
         // Clearing structs to prevent duplicate table data
         Events.locationStrings.removeAll()
         Events.eventTitles    .removeAll()
         Events.eventTime      .removeAll()
         StoredAlerts.storedAlerts.removeAll()
+
         
          self.requestAccessToCelandar()
         
@@ -188,6 +323,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         setUserRef()
         dateLabel()
         timeLabel()
+        
         
         LeadingConstraint.constant = -230
         

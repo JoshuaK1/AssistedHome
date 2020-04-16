@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DetailedStoredAlertsViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:PinAnnotation.swift">
    </FileRef>
    <FileRef
