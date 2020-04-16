@@ -20,19 +20,32 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginConfirmPasswordField: UITextField!
     
     @IBAction func loginButton(_ sender: Any) {
-        // Firebase sign in with email
-        Auth.auth().signIn(withEmail: loginEmailField.text!, password: loginPasswordField.text!) { (user, error) in
-            if error == nil{
-                self.performSegue(withIdentifier: "loginToHome", sender: self)
+        
+        // Check confirm password field matches password field
+        
+        if loginPasswordField.text! == loginConfirmPasswordField.text!{
+             // Firebase sign in with email
+            Auth.auth().signIn(withEmail: loginEmailField.text!, password: loginPasswordField.text!) { (user, error) in
+                if error == nil{
+                    self.performSegue(withIdentifier: "loginToHome", sender: self)
+                }
+                else{
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
-            else{
-                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
-            }
+            
+        } else {
+            let alertController = UIAlertController(title: "Error", message: "Password and Confirm Password fields do not match", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
         }
+
     }
     
     @IBAction func signUpButton(_ sender: Any) {

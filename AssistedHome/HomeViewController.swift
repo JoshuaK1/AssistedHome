@@ -188,7 +188,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 let key = (value as AnyObject).key as String
                 print(key)
                 
-                // Function call to add boundaries
+                // Function call pull locations from firebase
                 self.obtainLocationsFromFirebase(key: key)
                 
             }
@@ -208,15 +208,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         lowerLocRef.observeSingleEvent(of: .value, with: {(snapshot) in
             let value = snapshot.value as? NSDictionary
             
-            let longString     = value?["longtitude"]      as? String ?? ""
+            let longString     = value?["longtitude"]    as? String ?? ""
             let latString      = value?["latitude"]      as? String ?? ""
-            
-//            print("from obtainLocations method", longString)
-//            print("from obtainLocations method", latString)
             
             // Call function to localise location history
             self.localiseLocationHistory(longtitude: longString, latitude: latString)
-        
+            
+            
        })
     }
     
@@ -231,8 +229,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         LocationHistory.locationHistory.append(location)
         
-        self.buildAddress()
-        
         
     }
     
@@ -241,8 +237,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let userID = Auth.auth().currentUser?.uid
         
         let locRef = Database.database().reference(withPath: "locationHistory")
-        
-        
+    
         let locations = locRef.child(userID!)
         
         let locToPost = locations.childByAutoId()
@@ -296,16 +291,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     // Functions for enterring and exiting regions
     override func viewDidLoad() {
         
+        LocationHistory.addressStrings = [String]()
+        LocationHistory.locationHistory = [CLLocationCoordinate2D]()
+        
         self.obtainLocationKeys()
         self.obtainKeys()
+        
+        print("Count of locationHistory", LocationHistory.locationHistory.count)
        
         // Clearing structs to prevent duplicate table data
         Events.locationStrings.removeAll()
         Events.eventTitles    .removeAll()
         Events.eventTime      .removeAll()
         StoredAlerts.storedAlerts.removeAll()
-        LocationHistory.addressStrings.removeAll()
-        LocationHistory.locationHistory.removeAll()
+
         
          self.requestAccessToCelandar()
         
