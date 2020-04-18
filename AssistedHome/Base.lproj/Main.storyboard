@@ -58,14 +58,6 @@
                                 <rect key="frame" x="139" y="160" width="137" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfP-kL-jFd">
-                                <rect key="frame" x="58" y="610" width="299" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
-                                <state key="normal" title="Sign In With Google">
-                                    <color key="titleColor" red="0.99353247879999995" green="0.95275408029999997" blue="0.91918510200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ASSISTED HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLM-oZ-yYr">
                                 <rect key="frame" x="105" y="323" width="204" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -81,7 +73,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="FooterView" destination="neP-Ah-AZW" id="b8e-Aj-Vvu"/>
-                        <outlet property="GoogleSignIn" destination="sfP-kL-jFd" id="qCb-fT-urU"/>
                         <outlet property="loginButton" destination="vXK-51-Mij" id="jWs-OW-2z7"/>
                         <segue destination="dsV-Y3-ioQ" kind="show" identifier="showSignupViewController" id="ynO-dI-6vb"/>
                         <segue destination="QED-Xg-TJt" kind="show" identifier="showLoginViewController" id="eoL-tB-EFj"/>
@@ -823,7 +814,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRd-XF-sEL" customClass="GIDSignInButton">
-                                <rect key="frame" x="137" y="693" width="139" height="40"/>
+                                <rect key="frame" x="30" y="693" width="351" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -988,7 +979,7 @@
         <segue reference="axv-wV-Ikz"/>
         <segue reference="US0-lD-I8Y"/>
         <segue reference="Qv6-wk-9xc"/>
-        <segue reference="9Bf-oH-Cgv"/>
-        <segue reference="ynO-dI-6vb"/>
+        <segue reference="lhG-tI-MG6"/>
+        <segue reference="CMU-Rt-WKv"/>
     </inferredMetricsTieBreakers>
 </document>
