@@ -144,7 +144,7 @@ class DetailedReminderView: UIViewController, CLLocationManagerDelegate {
         // Get current user ID
         let userID = Auth.auth().currentUser?.uid
         
-        let userRef = Database.database().reference(withPath:"userRef")
+        _ = Database.database().reference(withPath:"userRef")
         
         for n in 0...Events.coorindates.count{
             if Events.eventIndex == n {

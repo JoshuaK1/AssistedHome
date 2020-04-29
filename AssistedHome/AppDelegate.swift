@@ -10,11 +10,14 @@ import UIKit
 import Firebase
 import CoreLocation
 import UserNotifications
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate{
+ 
 
     var window: UIWindow?
+    
     
     // Location manager and notification center for geofencing
     var locationManager: CLLocationManager?
@@ -45,7 +48,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         //Configure Firebase
         FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
         return true
+    }
+    
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//        if let error = error {
+//            print(error.localizedDescription)
+//            return
+//        } else {
+//            guard let authentication = user.authentication else {
+//                return
+//            }
+//            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+//            Auth.auth().signIn(with: credential) { (result, error) in
+//                if error == nil{
+//                    self.window?.rootViewController?.performSegue(withIdentifier: "startToHome", sender: nil)
+//                    print(result?.user.email)
+//                } else {
+//                    print(error?.localizedDescription)
+//                }
+//            }
+//        }
+//    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+          return GIDSignIn.sharedInstance().handle(url)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

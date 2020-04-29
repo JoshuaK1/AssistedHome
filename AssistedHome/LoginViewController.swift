@@ -9,9 +9,33 @@
 import Foundation
 import Firebase
 import UIKit
+import GoogleSignIn
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, GIDSignInDelegate {
     
+    // Authentication with Google Account
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        } else {
+            guard let authentication = user.authentication else {
+                return
+            }
+            // Obtain Google ID and Acess authentication tokens
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+            
+            // Pass Google tokens to Firebase Authentication
+            Auth.auth().signIn(with: credential) { (result, error) in
+                if error == nil{
+                    self.performSegue(withIdentifier: "loginToHome", sender: nil)
+                    print(result?.user.email as Any)
+                } else {
+                    print(error?.localizedDescription as Any)
+                }
+            }
+        }
+    }
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var FooterView: UIView!
@@ -54,6 +78,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.delegate = self
         
         FooterView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         

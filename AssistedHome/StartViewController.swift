@@ -11,8 +11,6 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    
-    @IBOutlet weak var GoogleSignIn: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var FooterView: UIView!
     @IBAction func SignUpButton(_ sender: UIButton) {
@@ -34,10 +32,10 @@ class StartViewController: UIViewController {
         
         loginButton.layer.cornerRadius = 7
         
-        GoogleSignIn.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        
-        GoogleSignIn.layer.cornerRadius = 7
-        
+//        GoogleSignIn.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+//
+//        GoogleSignIn.layer.cornerRadius = 7
+//
     }
     
 }
